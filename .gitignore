@@ -1,0 +1,13 @@
+### Python
+__pycache__/
+*.pytest_cache/
+.env
+
+### VS Code
+.vscode/
+
+### opencode
+.opencode/
+
+### docs
+.docs/

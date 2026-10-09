@@ -158,3 +158,23 @@ PARTIDA;ITEM
 85900;tramite de envio de planillas salariales ministerio de trabajo
 85900;acuotacion presentacion de planillas roe
 85900;pago por presentacion de planillas salariales gestion
+66100;pago de sueldos devengados no pagados de gestion anterior personal de planta
+66100;cancelacion de haberes devengados ejercicio pasado personal permanente
+66100;pago de remuneraciones pendientes de pago gestion anterior
+66100;regularizacion de sueldos devengados de la gestion pasada
+66100;pago de bonos devengados no pagados ejercicio anterior
+66100;liquidacion de sueldos pendientes gestion previa personal de planta
+66210;pago de jardineria devengada gestion anterior
+66210;cancelacion de servicio de limpieza integral devengado ejercicio pasado
+66210;pago de seguridad fisica devengada gestion previa
+66210;regularizacion de consultoria individual de linea devengada ejercicio anterior
+66210;pago de servicio de courier devengado no pagado gestion pasada
+66210;cancelacion de mantenimiento de ascensor devengado ejercicio anterior
+66210;pago de suscripcion de correo devengada gestion previa
+66210;regularizacion de servicio de limpieza integral pendiente de pago gestion anterior
+66210;pago de guardias de seguridad devengados ejercicio pasado
+66400;retenciones devengadas no pagadas gestion anterior
+66400;pago de retenciones pendientes de cancelacion ejercicio pasado
+66400;regularizacion de retenciones de sueldos devengadas gestion previa
+66400;cancelacion de retenciones por servicios devengados ejercicio anterior
+66400;pago de retenciones de jardineria devengada gestion pasada

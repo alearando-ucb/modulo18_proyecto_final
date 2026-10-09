@@ -1,0 +1,90 @@
+[
+  {
+    "id": "6c78278dc18b",
+    "group_id": 2,
+    "split": "train",
+    "label": "flete terrestre para traslado de materiales de exposición ()",
+    "class_name": "flete terrestre para traslado de materiales de exposición ()",
+    "sha256": "6c78278dc18b1414269fd3ce4b907aa22c2168171ec888bd5ae47ee080093826"
+  },
+  {
+    "id": "58341c29732e",
+    "group_id": 2,
+    "split": "train",
+    "label": "transporte de personal",
+    "class_name": "transporte de personal",
+    "sha256": "58341c29732e973cd4a85577de02ccf31550ea9ca1db15133141bc694045acca"
+  },
+  {
+    "id": "e1946c87e302",
+    "group_id": 2,
+    "split": "train",
+    "label": "mantenimiento de ascensor",
+    "class_name": "mantenimiento de ascensor",
+    "sha256": "e1946c87e3028383ac0353d64570a0b5a80c7ff25718a1734e3f76b933d4615c"
+  },
+  {
+    "id": "4b3768690e38",
+    "group_id": 2,
+    "split": "train",
+    "label": "servicios públicos (guardias de seguridad)",
+    "class_name": "servicios públicos (guardias de seguridad)",
+    "sha256": "4b3768690e38543fec59fdeb35c68aef5b072a710ba146b92eabe6b25d4f3f28"
+  },
+  {
+    "id": "e03c2671dd15",
+    "group_id": 8,
+    "split": "train",
+    "label": "tasas (aseo urbano y alumbrado publico)",
+    "class_name": "tasas (aseo urbano y alumbrado publico)",
+    "sha256": "e03c2671dd150b891685d429fbc25a5356b06631b10140fca4c1f51372baba88"
+  },
+  {
+    "id": "40e698fa28ee",
+    "group_id": 8,
+    "split": "train",
+    "label": "envio de planillas al ministerio de trabajo",
+    "class_name": "envio de planillas al ministerio de trabajo",
+    "sha256": "40e698fa28ee672eea6d96d50a506959c0e700b019022fa9a8c10413f7c3816e"
+  },
+  {
+    "id": "39eceb94b6e6",
+    "group_id": 3,
+    "split": "train",
+    "label": "refrigerios para el personal de planta de (servicio de te)",
+    "class_name": "refrigerios para el personal de planta de (servicio de te)",
+    "sha256": "39eceb94b6e61c8f65edc4b84f696fe938f7c99d7156d7ae4f85979e27f38152"
+  },
+  {
+    "id": "f0a6355a9b5b",
+    "group_id": 2,
+    "split": "train",
+    "label": "pasantias",
+    "class_name": "pasantias",
+    "sha256": "f0a6355a9b5b6720b8ea6638a191cf3ccecd48e855ed4b488d25fd04f89181da"
+  },
+  {
+    "id": "189b76bdd8a3",
+    "group_id": 2,
+    "split": "train",
+    "label": "viaticos",
+    "class_name": "viaticos",
+    "sha256": "189b76bdd8a3d26fca7e9633e0f1b28029dbec40b3bbf9a6044a4d95a0929dd3"
+  },
+  {
+    "id": "48a5d11b478f",
+    "group_id": 2,
+    "split": "train",
+    "label": "viaticos - juan pedro debreczeni",
+    "class_name": "viaticos - juan pedro debreczeni",
+    "sha256": "48a5d11b478fb2aeb6d7beaf8947308c9d3ccf55d8e2abe684affaf3d3a694ae"
+  },
+  {
+    "id": "be6674b46897",
+    "group_id": 2,
+    "split": "train",
+    "label": "viaticos - roberto salinas",
+    "class_name": "viaticos - roberto salinas",
+    "sha256": "be6674b468979876fac188c022bcd3472fa7e2a0ba60669de54793d1a1611010"
+  }
+]

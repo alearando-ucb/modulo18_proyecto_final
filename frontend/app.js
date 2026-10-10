@@ -77,6 +77,14 @@ document.getElementById("btn-predict").addEventListener("click", () => {
   clasificar(texto, "predict-result");
 });
 
+// Enter clasifica; Shift+Enter agrega un salto de línea
+document.getElementById("item-input").addEventListener("keydown", (e) => {
+  if (e.key === "Enter" && !e.shiftKey) {
+    e.preventDefault();
+    document.getElementById("btn-predict").click();
+  }
+});
+
 async function clasificar(texto, contenedorId) {
   const contenedor = document.getElementById(contenedorId);
   contenedor.innerHTML = "<p>Clasificando...</p>";

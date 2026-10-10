@@ -16,12 +16,17 @@ GRID_C = [0.01, 0.1, 1.0, 10.0]
 
 
 def cargar_datos():
-    """Carga features, labels y groups desde embeddings.npz."""
+    """Carga features, labels y groups desde embeddings.npz, mapeando partidas a índices."""
     data = np.load(EMBEDDINGS, allow_pickle=True)
     features = data["features"]
-    labels = data["labels"]
+    labels_str = data["labels"].astype(str)
     groups = data["item_ids"]
-    return features, labels, groups
+    partidas = data["partidas"].astype(str)
+
+    partida_to_idx = {p: i for i, p in enumerate(partidas)}
+    labels = np.array([partida_to_idx[p] for p in labels_str], dtype=np.int64)
+
+    return features, labels, groups, partidas
 
 
 def split_80_20(features, labels, groups):
@@ -77,7 +82,7 @@ def main():
     fijar_semillas()
 
     print("Cargando embeddings...")
-    features, labels, groups = cargar_datos()
+    features, labels, groups, partidas = cargar_datos()
     print(f"  features: {features.shape}")
     print(f"  labels: {labels.shape}")
 
@@ -96,7 +101,15 @@ def main():
     modelo.fit(X_train, y_train)
 
     print(f"Guardando modelo en {MODELO_LOGREG}")
-    joblib.dump({"modelo": modelo, "mejor_c": mejor_c, "grid_scores": grid_scores}, MODELO_LOGREG)
+    joblib.dump(
+        {
+            "modelo": modelo,
+            "mejor_c": mejor_c,
+            "grid_scores": grid_scores,
+            "partidas": partidas,
+        },
+        MODELO_LOGREG,
+    )
 
     print("Listo.")
 

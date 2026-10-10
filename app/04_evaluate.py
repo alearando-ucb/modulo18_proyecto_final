@@ -225,8 +225,9 @@ def main():
     print("\nLogreg:")
     logreg_data = joblib.load(MODELO_LOGREG)
     logreg_model = logreg_data["modelo"]
-    logreg_pred = logreg_model.predict(X_test)
+    logreg_pred = logreg_model.predict(X_test).astype(np.int64)
     logreg_prob = logreg_model.predict_proba(X_test)
+
     metricas_logreg = evaluar_modelo(y_test, logreg_pred, logreg_prob, partidas, "logreg")
     print(f"  macro-F1: {metricas_logreg['macro_f1']}")
     print(f"  accuracy: {metricas_logreg['accuracy']}")
@@ -263,8 +264,9 @@ def main():
     valid_mask = oov_idx >= 0
     print(f"  Items OOV válidos: {valid_mask.sum()} / {len(y_oov)}")
 
-    logreg_oov_pred = logreg_model.predict(X_oov)
+    logreg_oov_pred = logreg_model.predict(X_oov).astype(np.int64)
     logreg_oov_prob = logreg_model.predict_proba(X_oov)
+
     metricas_oov_logreg = evaluar_modelo(
         y_oov[valid_mask], logreg_oov_pred[valid_mask], logreg_oov_prob[valid_mask], partidas_train, "logreg_oov"
     )

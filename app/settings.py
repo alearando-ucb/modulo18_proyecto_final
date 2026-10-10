@@ -20,6 +20,9 @@ EMBEDDINGS = ARTIFACTS / "embeddings.npz"
 MODELO_LOGREG = ARTIFACTS / "logreg.joblib"
 MODELO_DNN = ARTIFACTS / "dnn.pt"
 HISTORIAL_DNN = ARTIFACTS / "training_history.json"
+METRICS = ARTIFACTS / "metrics.json"
+ERROR_REVIEW = ARTIFACTS / "error_review.md"
+OOV_EMBEDDINGS = ARTIFACTS / "oov_embeddings.npz"
 
 SEMILLA = 42
 

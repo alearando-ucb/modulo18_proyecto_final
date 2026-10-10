@@ -11630,21 +11630,5 @@
     "label": "66400",
     "class_name": "regularizacion de retenciones devengadas de la gestion pasada",
     "sha256": "218ef7dbd0f84c3f539f053fe2d8646bdc1f3c44cbc55a967f3fe7e2d771d5c7"
-  },
-  {
-    "id": "a74ad7db4dd5",
-    "group_id": "laptop gamer",
-    "split": "train",
-    "label": "43120",
-    "class_name": "laptop gamer",
-    "sha256": "a74ad7db4dd5e4450b09443f38d10638c28c6eb6373a333af2efc16c39158c01"
-  },
-  {
-    "id": "11c396fb7d2b",
-    "group_id": "monitor lcd de 27 pulgadas xiaomi",
-    "split": "train",
-    "label": "43120",
-    "class_name": "monitor lcd de 27 pulgadas xiaomi",
-    "sha256": "11c396fb7d2b0287637ece0f0c39e91966330d3bc233db37ccb58b727671adb3"
   }
 ]

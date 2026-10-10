@@ -32,9 +32,9 @@ from app.settings import (
     MODELO_SEMANTICO,
     OOV_EMBEDDINGS,
     RUTA_OOV,
-    SEMILLA,
     fijar_semillas,
 )
+from app.split import dividir_splits
 from app.texto import limpiar_texto
 
 # Pares de confusión graves congelados en .docs/gravedad.md
@@ -56,7 +56,7 @@ def calcular_hash(ruta) -> str:
 
 
 def cargar_split():
-    """Recupera el mismo split 80/20 usado en entrenamiento."""
+    """Recupera el mismo split 70/15/15 usado en entrenamiento."""
     data = np.load(EMBEDDINGS, allow_pickle=True)
     features = data["features"]
     labels_str = data["labels"].astype(str)
@@ -66,16 +66,7 @@ def cargar_split():
     partida_to_idx = {p: i for i, p in enumerate(partidas)}
     labels = np.array([partida_to_idx[p] for p in labels_str], dtype=np.int64)
 
-    unique_groups = np.unique(groups)
-    unique_labels = np.array([labels[groups == g][0] for g in unique_groups])
-
-    from sklearn.model_selection import StratifiedGroupKFold
-
-    sgkf = StratifiedGroupKFold(n_splits=5, shuffle=True, random_state=SEMILLA)
-    train_g, test_g = next(sgkf.split(unique_groups, unique_labels, groups=unique_groups))
-
-    test_groups = unique_groups[test_g]
-    test_idx = np.where(np.isin(groups, test_groups))[0]
+    _, _, test_idx = dividir_splits(labels, groups)
 
     return features[test_idx], labels[test_idx], partidas, groups[test_idx], labels_str[test_idx]
 

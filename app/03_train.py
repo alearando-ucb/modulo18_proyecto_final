@@ -9,7 +9,6 @@ import numpy as np
 import torch
 import torch.nn as nn
 from sklearn.metrics import f1_score
-from sklearn.model_selection import StratifiedGroupKFold
 from sklearn.utils.class_weight import compute_class_weight
 from torch.optim import AdamW
 from torch.utils.data import DataLoader, TensorDataset
@@ -19,9 +18,9 @@ from app.settings import (
     EMBEDDINGS,
     HISTORIAL_DNN,
     MODELO_DNN,
-    SEMILLA,
     fijar_semillas,
 )
+from app.split import dividir_splits
 
 # Hiperparámetros óptimos del experimento de referencia
 LR = 2e-4
@@ -45,23 +44,6 @@ def cargar_datos():
     labels = np.array([partida_to_idx[p] for p in labels_str], dtype=np.int64)
 
     return features, labels, groups, partidas
-
-
-def split_80_20(features, labels, groups):
-    """Divide 80/20 por grupos únicos, estratificado por label."""
-    unique_groups = np.unique(groups)
-    unique_labels = np.array([labels[groups == g][0] for g in unique_groups])
-
-    sgkf = StratifiedGroupKFold(n_splits=5, shuffle=True, random_state=SEMILLA)
-    train_g, test_g = next(sgkf.split(unique_groups, unique_labels, groups=unique_groups))
-
-    train_groups = unique_groups[train_g]
-    test_groups = unique_groups[test_g]
-
-    train_idx = np.where(np.isin(groups, train_groups))[0]
-    test_idx = np.where(np.isin(groups, test_groups))[0]
-
-    return features[train_idx], labels[train_idx], features[test_idx], labels[test_idx]
 
 
 def calcular_class_weights(labels_train, num_classes):
@@ -162,9 +144,11 @@ def main():
     features, labels, groups, partidas = cargar_datos()
     print(f"  features: {features.shape}")
 
-    print("Split 80/20...")
-    X_train, y_train, X_test, y_test = split_80_20(features, labels, groups)
-    print(f"  train: {X_train.shape[0]}, test: {X_test.shape[0]}")
+    print("Split 70/15/15...")
+    train_idx, val_idx, prueba_idx = dividir_splits(labels, groups)
+    X_train, y_train = features[train_idx], labels[train_idx]
+    X_val, y_val = features[val_idx], labels[val_idx]
+    print(f"  train: {len(train_idx)}, val: {len(val_idx)}, prueba: {len(prueba_idx)}")
 
     num_classes = len(partidas)
     print(f"  clases: {num_classes}")
@@ -187,7 +171,7 @@ def main():
     print(f"  parámetros: {total_params:,}")
 
     print(f"Entrenando (LR={LR}, WD={WEIGHT_DECAY}, dropout={DROPOUT}, max_epochs={EPOCHS})...")
-    historial = entrenar(modelo, train_loader, X_test, y_test, device, weights_tensor)
+    historial = entrenar(modelo, train_loader, X_val, y_val, device, weights_tensor)
 
     print(f"Guardando modelo en {MODELO_DNN}")
     torch.save(

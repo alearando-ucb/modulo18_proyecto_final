@@ -11,6 +11,7 @@ from sklearn.metrics import f1_score
 from sklearn.model_selection import StratifiedGroupKFold
 
 from app.settings import EMBEDDINGS, MODELO_LOGREG, SEMILLA, fijar_semillas
+from app.split import dividir_splits
 
 GRID_C = [0.01, 0.1, 1.0, 10.0]
 
@@ -27,33 +28,6 @@ def cargar_datos():
     labels = np.array([partida_to_idx[p] for p in labels_str], dtype=np.int64)
 
     return features, labels, groups, partidas
-
-
-def split_80_20(features, labels, groups):
-    """Divide 80/20 por grupos únicos, estratificado por label."""
-    unique_groups = np.unique(groups)
-    unique_labels = []
-    label_to_group = {}
-    for g in unique_groups:
-        idx = np.where(groups == g)[0]
-        label_to_group[g] = labels[idx[0]]
-        unique_labels.append(labels[idx[0]])
-
-    unique_labels = np.array(unique_labels)
-    sgkf = StratifiedGroupKFold(n_splits=5, shuffle=True, random_state=SEMILLA)
-
-    train_idx = []
-    test_idx = []
-    for train_g, test_g in sgkf.split(unique_groups, unique_labels, groups=unique_groups):
-        train_groups = unique_groups[train_g]
-        test_groups = unique_groups[test_g]
-        for g in train_groups:
-            train_idx.extend(np.where(groups == g)[0])
-        for g in test_groups:
-            test_idx.extend(np.where(groups == g)[0])
-        break
-
-    return features[train_idx], labels[train_idx], features[test_idx], labels[test_idx]
 
 
 def seleccionar_c(features_train, labels_train, groups_train):
@@ -86,10 +60,11 @@ def main():
     print(f"  features: {features.shape}")
     print(f"  labels: {labels.shape}")
 
-    print("Split 80/20...")
-    X_train, y_train, X_test, y_test = split_80_20(features, labels, groups)
-    groups_train = groups[: len(X_train)]
-    print(f"  train: {X_train.shape[0]}, test: {X_test.shape[0]}")
+    print("Split 70/15/15...")
+    train_idx, val_idx, prueba_idx = dividir_splits(labels, groups)
+    X_train, y_train = features[train_idx], labels[train_idx]
+    groups_train = groups[train_idx]
+    print(f"  train: {len(train_idx)}, val: {len(val_idx)}, prueba: {len(prueba_idx)}")
 
     print("Seleccionando C con validación cruzada...")
     mejor_c, grid_scores = seleccionar_c(X_train, y_train, groups_train)

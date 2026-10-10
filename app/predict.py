@@ -3,7 +3,6 @@
 # predict.py — Inferencia de un ítem nuevo sobre los modelos entrenados.
 
 import json
-import re
 import time
 
 import joblib
@@ -19,9 +18,7 @@ from app.settings import (
     MODELO_SEMANTICO,
     PARTIDAS_NOMBRES,
 )
-
-RUIDO_INSTITUCIONAL = re.compile(r"\b(cdl|fcbcb|revoluciones|jum|juaf)\b")
-ESPACIOS = re.compile(r"\s+")
+from app.texto import limpiar_texto
 
 _modelo_st = None
 _modelo_dnn = None
@@ -31,14 +28,6 @@ _descripciones = None
 _emb_desc = None
 _nombres = None
 _desc_completas = None
-
-
-def limpiar_texto(texto: str) -> str:
-    """Aplica la misma limpieza que 01_prep_data: minúsculas, ruido institucional, espacios."""
-    texto = texto.lower().strip()
-    texto = RUIDO_INSTITUCIONAL.sub(" ", texto)
-    texto = ESPACIOS.sub(" ", texto)
-    return texto
 
 
 def cargar_modelos():

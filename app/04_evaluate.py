@@ -35,6 +35,7 @@ from app.settings import (
     SEMILLA,
     fijar_semillas,
 )
+from app.texto import limpiar_texto
 
 # Pares de confusión graves congelados en .docs/gravedad.md
 PARES_GRAVES = {
@@ -135,7 +136,7 @@ def generar_features_oov():
     from sentence_transformers import SentenceTransformer
 
     oov = pd.read_csv(RUTA_OOV, sep=";", encoding="utf-8")
-    items = oov["ITEM"].str.lower().str.strip().tolist()
+    items = [limpiar_texto(str(t)) for t in oov["ITEM"].tolist()]
     labels_str = oov["PARTIDA"].astype(str).tolist()
 
     data = np.load(EMBEDDINGS, allow_pickle=True)

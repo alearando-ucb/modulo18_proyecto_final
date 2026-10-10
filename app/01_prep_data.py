@@ -12,14 +12,7 @@ from pathlib import Path
 import pandas as pd
 
 from app.settings import DATA_CLEAN, DATA_SYNTHETIC, RUTA_CORRECCIONES, RUTA_DATOS, UMBRAL_MINIMO
-
-
-def limpiar_texto(texto: str) -> str:
-    """Minúsculas, quita ruido institucional y espacios extras."""
-    texto = texto.lower()
-    texto = re.sub(r"cdl|fcbcb|revoluciones|jum|juaf", "", texto)
-    texto = re.sub(r"\s+", " ", texto).strip()
-    return texto
+from app.texto import limpiar_texto
 
 
 def generar_hash(texto: str) -> str:

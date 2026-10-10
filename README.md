@@ -69,12 +69,26 @@ Las dependencias principales son pandas, numpy, scikit-learn, torch, sentence-tr
 ├── artifacts/                 # Modelos y métricas entrenadas
 ├── frontend/                  # Interfaz web
 ├── docs/                      # Documentación de la API y los datos
+├── run.py                     # Orquestador del pipeline
 └── requirements.txt
 ```
 
 ## Ejecución
 
-El pipeline de entrenamiento se ejecuta en orden. Se recomienda usar una máquina con GPU para los pasos de generación de embeddings y entrenamiento de la red neuronal; en CPU estos pasos son significativamente más lentos.
+Para regenerar todo el pipeline (datos, embeddings, modelos y métricas) y levantar la API con un solo comando:
+
+```powershell
+python run.py --rebuild
+```
+
+El orquestador ejecuta los cinco pasos del pipeline en orden y al finalizar inicia el servidor. Opciones:
+
+- `--rebuild` fuerza todos los pasos; sin él, solo se ejecutan los pasos cuyos artefactos faltan o quedaron desactualizados (compara los hashes de `DATOS.csv`, de los embeddings y del OOV contra los registrados en `metrics.json`).
+- `--dry-run` muestra el plan de pasos sin ejecutar nada.
+- `--no-serve` regenera y termina sin iniciar la API.
+- `--port` cambia el puerto de la API (por defecto 8000).
+
+Los pasos individuales, en orden, son:
 
 ```powershell
 python -m app.01_prep_data    # Preparar datos limpios
@@ -84,13 +98,15 @@ python -m app.03_train        # Entrenar red neuronal (recomendado con GPU)
 python -m app.04_evaluate     # Evaluar ambos modelos
 ```
 
-Para iniciar la API y el frontend:
+Si la máquina no tiene GPU, se recomienda correr `python run.py --rebuild` en la máquina con GPU y subir los artefactos resultantes de `artifacts/` al repositorio.
+
+Para iniciar solo la API y el frontend, sin regenerar artefactos:
 
 ```powershell
 .\venv\Scripts\uvicorn.exe app.main:app --host 127.0.0.1 --port 8000
 ```
 
-Luego abrir http://127.0.0.1:8000/ en el navegador. La interfaz ofrece un clasificador de ítems, ejemplos de prueba y un panel de evaluación con matrices de confusión comparables entre modelos y conjuntos.
+Luego abrir http://127.0.0.1:8000/ en el navegador. La interfaz ofrece un clasificador de ítems, ejemplos de prueba, un panel de evaluación con matrices de confusión comparables entre modelos y conjuntos, y un botón de corrección en cada predicción que registra la partida correcta para el reentrenamiento.
 
 ## Resultados
 
@@ -107,11 +123,13 @@ La DNN es el modelo ganador según el criterio congelado (mayor Macro-F1) y pres
 
 ## API
 
-La API expone tres endpoints:
+La API expone cinco endpoints:
 
 - `GET /api/health` — estado del servicio.
 - `POST /api/predict` — clasifica un ítem de gasto. Acepta `{"item": "texto del gasto"}` y retorna la partida predicha, su nombre y el top-3 de puntajes.
 - `GET /api/metrics` — métricas de evaluación de ambos modelos.
+- `GET /api/partidas` — catálogo de partidas (código y nombre) usado por el selector de correcciones.
+- `POST /api/feedback` — registra una corrección de predicción. Acepta `{"item", "partida_predicha", "partida_correcta", "usuario"}` y la agrega a `DATOS CORRECCIONES.csv` para el siguiente reentrenamiento.
 
 Ejemplo de predicción:
 

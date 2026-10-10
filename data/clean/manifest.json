@@ -2072,76 +2072,76 @@
     "sha256": "83fb3c5a730bd160aab2fe41392bc78401548f77379d1522c0792efbbc52ae83"
   },
   {
-    "id": "9f2309c36b01",
-    "group_id": "pago de sueldos del personal de planta de",
+    "id": "023968536042",
+    "group_id": "pago devengado de sueldos del personal de planta de",
     "split": "train",
     "label": "66100",
-    "class_name": "pago de sueldos del personal de planta de",
-    "sha256": "9f2309c36b013311b92bb291efcf21cdb7b4fd32b9d8b7e8d64becb96bef9d5a"
+    "class_name": "pago devengado de sueldos del personal de planta de",
+    "sha256": "023968536042befd3745fe75f71968ab3b824f13c724f377fa5629468e97569c"
   },
   {
-    "id": "8e8249589335",
-    "group_id": "pago consultores en linea mes de diciembre",
+    "id": "35cbf4c7479c",
+    "group_id": "pago devengado a consultores en linea mes de diciembre",
     "split": "train",
     "label": "66210",
-    "class_name": "pago consultores en linea mes de diciembre",
-    "sha256": "8e824958933539a8d3bf750e087c0240b44eef1540151896a5dafe2114a6bf63"
+    "class_name": "pago devengado a consultores en linea mes de diciembre",
+    "sha256": "35cbf4c7479c3bd429ebc2aba838c0ae296e9455a034e14fd5bd734a4cacbb00"
   },
   {
-    "id": "fede236e4e9c",
-    "group_id": "pago de jardineria",
+    "id": "b213b25fcc37",
+    "group_id": "pago de jardineria de la gestion pasada",
     "split": "train",
     "label": "66210",
-    "class_name": "pago de jardineria",
-    "sha256": "fede236e4e9cf03e992c77f3dbd1584546d04e4e4a66757d98fd4acdc542bc5a"
+    "class_name": "pago de jardineria de la gestion pasada",
+    "sha256": "b213b25fcc378ebe561171cf581f7f5d420bee09e72184968be0b976a5c44f7a"
   },
   {
-    "id": "412b00c4e92e",
-    "group_id": "pago de servicio de currier",
+    "id": "51bf3330ddde",
+    "group_id": "pago de servicio de currier mes de diciembre de la gestion anterior",
     "split": "train",
     "label": "66210",
-    "class_name": "pago de servicio de currier",
-    "sha256": "412b00c4e92e3bb7d77fabc83c6af646a996165fcf5c300077f800e8c184de87"
+    "class_name": "pago de servicio de currier mes de diciembre de la gestion anterior",
+    "sha256": "51bf3330dddeb384d75b6ebc78acd6f7ed8ea0a4822c43ad2932d00b653e20be"
   },
   {
-    "id": "233a763293b5",
-    "group_id": "pago de servicio de limpieza integral",
+    "id": "87cf67b96189",
+    "group_id": "pago de servicio de limpieza integral devengado de la gestion pasada",
     "split": "train",
     "label": "66210",
-    "class_name": "pago de servicio de limpieza integral",
-    "sha256": "233a763293b56db32c13b532700c3e76ef1e60d537a3a31a30fc13d1ad70795b"
+    "class_name": "pago de servicio de limpieza integral devengado de la gestion pasada",
+    "sha256": "87cf67b961892ecd962243f00bf44712b19abb445623fefbfe0067e72c650230"
   },
   {
-    "id": "6b66fefed50f",
-    "group_id": "pago de servicio de seguridad física estatal",
+    "id": "1173ff0762a0",
+    "group_id": "pago devengado de servicio de seguridad física estatal",
     "split": "train",
     "label": "66210",
-    "class_name": "pago de servicio de seguridad física estatal",
-    "sha256": "6b66fefed50f4417a8422b9ed2c728e4b3dc5fc26a945aaea2b20e49523b8d65"
+    "class_name": "pago devengado de servicio de seguridad física estatal",
+    "sha256": "1173ff0762a0d2cd301ac6e00a83d220a8d22bcde2cbda10403fe7921143aa5d"
   },
   {
-    "id": "8075964438ca",
-    "group_id": "pago de retenciones por jardineria",
+    "id": "af7b63fd7e36",
+    "group_id": "pago devengado de retenciones por jardineria",
     "split": "train",
     "label": "66400",
-    "class_name": "pago de retenciones por jardineria",
-    "sha256": "8075964438ca0eb9e6a07f4f3a217dfa72a0e39c5dc9903672eebf2cd69e7a16"
+    "class_name": "pago devengado de retenciones por jardineria",
+    "sha256": "af7b63fd7e363328a066866682e6f72ca1d4cb03bc3e86a02ce27c63bb9fa9d0"
   },
   {
-    "id": "16de8dd1c2cf",
-    "group_id": "pago de retenciones por servicio de seguridad física estatal",
+    "id": "8963ceec00d6",
+    "group_id": "pago de retenciones por servicio de seguridad física estatal de la pasada gestion",
     "split": "train",
     "label": "66400",
-    "class_name": "pago de retenciones por servicio de seguridad física estatal",
-    "sha256": "16de8dd1c2cf9c991930956bc0ac746668964e6d4978adf9a76aeb62e4062a30"
+    "class_name": "pago de retenciones por servicio de seguridad física estatal de la pasada gestion",
+    "sha256": "8963ceec00d6789cd09c23f04da1f1a4949bf6f1181dc13f61403b3b57ab1c5b"
   },
   {
-    "id": "21404267d4da",
-    "group_id": "pago de retenciones por sueldos del personal de planta de casa de la libertad",
+    "id": "5578ed7e3e0e",
+    "group_id": "pago devengado de retenciones por sueldos del personal de planta de casa de la libertad",
     "split": "train",
     "label": "66400",
-    "class_name": "pago de retenciones por sueldos del personal de planta de casa de la libertad",
-    "sha256": "21404267d4dad8cafdd16e592a58dc1885fd67506e8c0697692dedcc959d9dc8"
+    "class_name": "pago devengado de retenciones por sueldos del personal de planta de casa de la libertad",
+    "sha256": "5578ed7e3e0e2b9de3dd903220a95371ad3aec8b60366acf9d00cc42e4db71ed"
   },
   {
     "id": "344a59b8f8e8",
@@ -2912,20 +2912,20 @@
     "sha256": "7bc8906f43859520bb41cf267c391590b1705d3b1a5f4b190e6b84db6d4e164a"
   },
   {
-    "id": "ed958f3c122e",
-    "group_id": "pago de servicio de seguridad física estatal",
+    "id": "69731a2a359c",
+    "group_id": "pago de servicio de seguridad física estatal de la pasada gestion",
     "split": "train",
     "label": "66210",
-    "class_name": "pago de servicio de seguridad física estatal",
-    "sha256": "ed958f3c122e517272a9160b7cd2481d58f56c658ebdc8191f6446ffb5d9a872"
+    "class_name": "pago de servicio de seguridad física estatal de la pasada gestion",
+    "sha256": "69731a2a359cd021884f8f6a47bfdb6b97ef5ade3b3fd5995b520cc5bd0c0dcb"
   },
   {
-    "id": "c4155485ef88",
-    "group_id": "pago de retenciones por servicio de seguridad física estatal",
+    "id": "dcbdd6ed6a83",
+    "group_id": "pago devengado de retenciones por servicio de seguridad física estatal",
     "split": "train",
     "label": "66400",
-    "class_name": "pago de retenciones por servicio de seguridad física estatal",
-    "sha256": "c4155485ef88c83e3b4a10a5a68219ae342fa039f51b6e9bfa83536a168e4b1b"
+    "class_name": "pago devengado de retenciones por servicio de seguridad física estatal",
+    "sha256": "dcbdd6ed6a838e9db4731de9ea90e61293f00f4854d3423a9b40f6e2285fc2f8"
   },
   {
     "id": "914e828df1fd",
@@ -3056,28 +3056,28 @@
     "sha256": "cf8c219c65ea218b75830e2db9bb8b967d04c2e2fbe95c6f126e82753c0bc1ae"
   },
   {
-    "id": "b72a93aaa7d1",
-    "group_id": "pago de sueldos del personal de planta de",
+    "id": "f1d481161873",
+    "group_id": "pago de sueldos del personal de planta de de la pasada gestion",
     "split": "train",
     "label": "66100",
-    "class_name": "pago de sueldos del personal de planta de",
-    "sha256": "b72a93aaa7d139c1287a23a318ed4eac2d3e5111790ca9ea831d391e61f07e28"
+    "class_name": "pago de sueldos del personal de planta de de la pasada gestion",
+    "sha256": "f1d481161873e50e6f45d32dea1f14e2db65353ad8db82edc89ef523e4b09d85"
   },
   {
-    "id": "5f2c4f46bc3d",
-    "group_id": "pago de servicio de limpieza integral",
+    "id": "f9e221247686",
+    "group_id": "pago de servicio de limpieza integral de la gestion anterior",
     "split": "train",
     "label": "66210",
-    "class_name": "pago de servicio de limpieza integral",
-    "sha256": "5f2c4f46bc3d598f447723ed8eff0138ec2901b3c2436896363716e0bd54ff2e"
+    "class_name": "pago de servicio de limpieza integral de la gestion anterior",
+    "sha256": "f9e221247686087ae4f9d5e4b4a3dee3b836fda7f05c45264d3e383029a0fa76"
   },
   {
-    "id": "564ad581aa74",
-    "group_id": "pago de retenciones por sueldos del personal de planta de casa de la libertad",
+    "id": "fb2216b391fe",
+    "group_id": "pago devengado de retenciones por sueldos del personal de planta de casa de la libertad",
     "split": "train",
     "label": "66400",
-    "class_name": "pago de retenciones por sueldos del personal de planta de casa de la libertad",
-    "sha256": "564ad581aa745625afbb3d40ed2c7bf78f1acfe58f2ed14d36a7891910cbd366"
+    "class_name": "pago devengado de retenciones por sueldos del personal de planta de casa de la libertad",
+    "sha256": "fb2216b391fea73e024fdad76393455b34cb34dacb46df8731b51364220eb40d"
   },
   {
     "id": "639bf9674123",
@@ -5096,44 +5096,44 @@
     "sha256": "88c25e234a4833f3b366aed4eb9fa561560575da053c77876277aa1059050dbe"
   },
   {
-    "id": "a761a983834f",
-    "group_id": "pago de sueldos del personal de planta de",
+    "id": "87198213d9ca",
+    "group_id": "pago de sueldos del personal de planta de devengado de la gestion pasada",
     "split": "train",
     "label": "66100",
-    "class_name": "pago de sueldos del personal de planta de",
-    "sha256": "a761a983834f274101633984be3be9e2d6c9916a10d66a8a1edd52d8794608e2"
+    "class_name": "pago de sueldos del personal de planta de devengado de la gestion pasada",
+    "sha256": "87198213d9cacb29ef0c4a6222da017ea2ad2e853677cc46f2a106eb3a34021a"
   },
   {
-    "id": "9b7543cadca6",
-    "group_id": "pago de servicio de seguridad física estatal",
+    "id": "7fde30571d6d",
+    "group_id": "pago de servicio de seguridad física estatal comprometido de la anterior gestion",
     "split": "train",
     "label": "66210",
-    "class_name": "pago de servicio de seguridad física estatal",
-    "sha256": "9b7543cadca6722407192bc7d5a8853632facbec5b2bf15bbe08070786e7a186"
+    "class_name": "pago de servicio de seguridad física estatal comprometido de la anterior gestion",
+    "sha256": "7fde30571d6d5c123600b4456680fc7293c98cf7ab3fc181bb4c23279b7b0d9e"
   },
   {
-    "id": "d072ccfecd2d",
-    "group_id": "pago de servicio de limpieza integral",
+    "id": "92275d8b23df",
+    "group_id": "pago devengado de servicio de limpieza integral del mes de diciembre",
     "split": "train",
     "label": "66210",
-    "class_name": "pago de servicio de limpieza integral",
-    "sha256": "d072ccfecd2d4f149b68a08d7581f0df7f9b2e63fed97fe2d44390a15acc4542"
+    "class_name": "pago devengado de servicio de limpieza integral del mes de diciembre",
+    "sha256": "92275d8b23dfea096ea91fdd6fcde53e5ba7faba6fc0a70a47946d7133611d50"
   },
   {
-    "id": "756547b645fd",
-    "group_id": "pago de retenciones por servicio de seguridad física estatal",
+    "id": "ba6f246e48e5",
+    "group_id": "pago de retenciones por servicio de seguridad física estatal comprometido gestion pasada",
     "split": "train",
     "label": "66400",
-    "class_name": "pago de retenciones por servicio de seguridad física estatal",
-    "sha256": "756547b645fda0930d858840c9d72d992c2ced73180b1e0d4905e8c18e95ddeb"
+    "class_name": "pago de retenciones por servicio de seguridad física estatal comprometido gestion pasada",
+    "sha256": "ba6f246e48e572d250442931830ef3077635b99f242a9c8b909ebc542e968b48"
   },
   {
-    "id": "691b02659fe8",
-    "group_id": "pago de retenciones por sueldos del personal de planta de casa de la libertad",
+    "id": "939335a7d706",
+    "group_id": "pago devengado de retenciones por sueldos del personal de planta de casa de la libertad",
     "split": "train",
     "label": "66400",
-    "class_name": "pago de retenciones por sueldos del personal de planta de casa de la libertad",
-    "sha256": "691b02659fe8588390dc7c645bd5a59ada4d69a4b1b84d7d1d1ac72b0a765f62"
+    "class_name": "pago devengado de retenciones por sueldos del personal de planta de casa de la libertad",
+    "sha256": "939335a7d7066e051fa93325b6ff4978dab20e9578b17de78cf0872fb6c993f0"
   },
   {
     "id": "5dfac2cb8171",
@@ -7688,20 +7688,20 @@
     "sha256": "f69292f079cf6949a00d5b379ba66875c60e8774cae4095644b0d4d20f06b3e3"
   },
   {
-    "id": "1bc466774db0",
-    "group_id": "pago de sueldos del personal de planta de",
+    "id": "3c592ae3f356",
+    "group_id": "pago de sueldos del personal de planta de mes diciembre pasada gestion",
     "split": "train",
     "label": "66100",
-    "class_name": "pago de sueldos del personal de planta de",
-    "sha256": "1bc466774db0210c5fd784f38bdb9966f07e629bf8a2e4be9de0b738be147a3d"
+    "class_name": "pago de sueldos del personal de planta de mes diciembre pasada gestion",
+    "sha256": "3c592ae3f356f693a3096fd82243a1b12090556a718fd8981a9d863bd6eb3699"
   },
   {
-    "id": "2d199339583b",
-    "group_id": "pago de servicio de seguridad física estatal",
+    "id": "1375618a9288",
+    "group_id": "pago de servicio de seguridad física estatal mes diciembre",
     "split": "train",
     "label": "66210",
-    "class_name": "pago de servicio de seguridad física estatal",
-    "sha256": "2d199339583b1813185932fcc693021f8879e84e81b90ad440d5ec45c5b8d2e5"
+    "class_name": "pago de servicio de seguridad física estatal mes diciembre",
+    "sha256": "1375618a92887af598ddd0eb042b62871130348c5ca24bfe43d400f5df5565c9"
   },
   {
     "id": "00b6a3e7a44f",
@@ -7712,28 +7712,28 @@
     "sha256": "00b6a3e7a44fa17381528a7721bf2adeff1cc0b202ffd5c733f9416997f5d789"
   },
   {
-    "id": "0201b37f8231",
-    "group_id": "pago de servicio de limpieza integral",
+    "id": "beec67633ae5",
+    "group_id": "pago comprometido de servicio de limpieza integral mes diciembre",
     "split": "train",
     "label": "66210",
-    "class_name": "pago de servicio de limpieza integral",
-    "sha256": "0201b37f823158e05c2c8392ad56c04237aa06cfbf5083fa0641eb78c5a930ff"
+    "class_name": "pago comprometido de servicio de limpieza integral mes diciembre",
+    "sha256": "beec67633ae59af6cd1e52a9fb4a41e294c3c3b2ddeee6c656b1c3a20a54e8bb"
   },
   {
-    "id": "2f5023742ed6",
-    "group_id": "pago de retenciones por servicio de seguridad física estatal",
+    "id": "7311447b2355",
+    "group_id": "pago de retenciones por servicio de seguridad física estatal de la gestion pasada",
     "split": "train",
     "label": "66400",
-    "class_name": "pago de retenciones por servicio de seguridad física estatal",
-    "sha256": "2f5023742ed66b9c2c8ea9682f564d8fe8e85745e830ab50f531a4d6dd91a3db"
+    "class_name": "pago de retenciones por servicio de seguridad física estatal de la gestion pasada",
+    "sha256": "7311447b235542e2e002dc650ceb9d6ee1ac2cf13c47ab918d889f859539d147"
   },
   {
-    "id": "1584709621f2",
-    "group_id": "pago de retenciones por sueldos del personal de planta de casa de la libertad",
+    "id": "49651329cdf4",
+    "group_id": "pago devengado de retenciones por sueldos del personal de planta de casa de la libertad",
     "split": "train",
     "label": "66400",
-    "class_name": "pago de retenciones por sueldos del personal de planta de casa de la libertad",
-    "sha256": "1584709621f2b9cc2f485d0e91501040ba047ae07e715039504b46c99792ec32"
+    "class_name": "pago devengado de retenciones por sueldos del personal de planta de casa de la libertad",
+    "sha256": "49651329cdf4cc1a13d5184c5a6db0e8183259e791cb958d869eaef8eec431e0"
   },
   {
     "id": "9e8dd5563146",
@@ -9808,20 +9808,20 @@
     "sha256": "eeabcee0ad3e68c9b3a3474df8e42b2ed51b902132e3245a85686cddc711ec63"
   },
   {
-    "id": "3acece2c2cbd",
-    "group_id": "pago de sueldos del personal de planta de",
+    "id": "7d4850b581f3",
+    "group_id": "pago de sueldos del personal de planta de deuda gestion pasada",
     "split": "train",
     "label": "66100",
-    "class_name": "pago de sueldos del personal de planta de",
-    "sha256": "3acece2c2cbd75e6b5ea1a5b043fcae2ae4637aec493dd4ab6a1ed7c1630d92d"
+    "class_name": "pago de sueldos del personal de planta de deuda gestion pasada",
+    "sha256": "7d4850b581f3ef82751dc11a0a394898494d366232067d619ee0ce330c5b54ac"
   },
   {
-    "id": "a0d63e03fd18",
-    "group_id": "pago de servicio de seguridad física estatal",
+    "id": "f29d28d638cf",
+    "group_id": "pago de servicio de seguridad física estatal pendiente anterior gestion",
     "split": "train",
     "label": "66210",
-    "class_name": "pago de servicio de seguridad física estatal",
-    "sha256": "a0d63e03fd18c7af09a7ecd78980f5c5ab56ad6e68519189683b795ecc3d92c1"
+    "class_name": "pago de servicio de seguridad física estatal pendiente anterior gestion",
+    "sha256": "f29d28d638cf5681606e12cc88fb1b3dc29e94e6f6b0716cbb5a4a31d69a3cad"
   },
   {
     "id": "9bdd97bc6f60",

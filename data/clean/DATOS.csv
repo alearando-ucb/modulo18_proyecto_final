@@ -258,15 +258,15 @@ ADQUISICIÓN DE OTROS REPUESTOS Y ACCESORIOS;39800;adquisición de otros repuestos
 ADQUISICIÓN DE MATERIALES OTROS;39990;adquisición de materiales otros
 TASAS (ASEO URBANO Y ALUMBRADO PUBLICO);85100;tasas (aseo urbano y alumbrado publico)
 ENVIO DE PLANILLAS AL MINISTERIO DE TRABAJO;85900;envio de planillas al ministerio de trabajo
-PAGO DE SUELDOS DEL PERSONAL DE PLANTA DE CDL;66100;pago de sueldos del personal de planta de
-PAGO CONSULTORES EN LINEA MES DE DICIEMBRE;66210;pago consultores en linea mes de diciembre
-PAGO DE JARDINERIA;66210;pago de jardineria
-PAGO DE SERVICIO DE CURRIER;66210;pago de servicio de currier
-PAGO DE SERVICIO DE LIMPIEZA INTEGRAL;66210;pago de servicio de limpieza integral
-PAGO DE SERVICIO DE SEGURIDAD FÍSICA ESTATAL;66210;pago de servicio de seguridad física estatal
-PAGO DE RETENCIONES POR JARDINERIA;66400;pago de retenciones por jardineria
-PAGO DE RETENCIONES POR SERVICIO DE SEGURIDAD FÍSICA ESTATAL;66400;pago de retenciones por servicio de seguridad física estatal
-PAGO DE RETENCIONES POR SUELDOS DEL PERSONAL DE PLANTA DE CASA DE LA LIBERTAD;66400;pago de retenciones por sueldos del personal de planta de casa de la libertad
+PAGO DEVENGADO DE SUELDOS DEL PERSONAL DE PLANTA DE CDL;66100;pago devengado de sueldos del personal de planta de
+PAGO DEVENGADO A CONSULTORES EN LINEA MES DE DICIEMBRE;66210;pago devengado a consultores en linea mes de diciembre
+PAGO DE JARDINERIA DE LA GESTION PASADA;66210;pago de jardineria de la gestion pasada
+PAGO DE SERVICIO DE CURRIER MES DE DICIEMBRE DE LA GESTION ANTERIOR;66210;pago de servicio de currier mes de diciembre de la gestion anterior
+PAGO DE SERVICIO DE LIMPIEZA INTEGRAL DEVENGADO DE LA GESTION PASADA;66210;pago de servicio de limpieza integral devengado de la gestion pasada
+PAGO DEVENGADO DE SERVICIO DE SEGURIDAD FÍSICA ESTATAL;66210;pago devengado de servicio de seguridad física estatal
+PAGO DEVENGADO DE RETENCIONES POR JARDINERIA;66400;pago devengado de retenciones por jardineria
+PAGO DE RETENCIONES POR SERVICIO DE SEGURIDAD FÍSICA ESTATAL DE LA PASADA GESTION;66400;pago de retenciones por servicio de seguridad física estatal de la pasada gestion
+PAGO DEVENGADO DE RETENCIONES POR SUELDOS DEL PERSONAL DE PLANTA DE CASA DE LA LIBERTAD;66400;pago devengado de retenciones por sueldos del personal de planta de casa de la libertad
 BONO DE ANTIGÜEDAD;11220;bono de antigüedad
 AGUINALDOS;11400;aguinaldos
 ASIGNACIONES FAMILIARES;11600;asignaciones familiares
@@ -363,8 +363,8 @@ ADQUISICIÓN DE MATERIALES ELECTRICOS;39700;adquisición de materiales electricos
 ADQUISICION DE REPUESTOS Y ACCESORIOS DE EQUIPOS DE COMPUTACION;39800;adquisicion de repuestos y accesorios de equipos de computacion
 BROCHAS;39990;brochas
 ALMIDÓN DE TRIGO;39990;almidón de trigo
-PAGO DE SERVICIO DE SEGURIDAD FÍSICA ESTATAL;66210;pago de servicio de seguridad física estatal
-PAGO DE RETENCIONES POR SERVICIO DE SEGURIDAD FÍSICA ESTATAL;66400;pago de retenciones por servicio de seguridad física estatal
+PAGO DE SERVICIO DE SEGURIDAD FÍSICA ESTATAL DE LA PASADA GESTION;66210;pago de servicio de seguridad física estatal de la pasada gestion
+PAGO DEVENGADO DE RETENCIONES POR SERVICIO DE SEGURIDAD FÍSICA ESTATAL;66400;pago devengado de retenciones por servicio de seguridad física estatal
 TASAS (ASEO URBANO Y ALUMBRADO PUBLICO);85100;tasas (aseo urbano y alumbrado publico)
 ENVIO DE PLANILLAS AL MINISTERIO DE TRABAJO;85900;envio de planillas al ministerio de trabajo
 BONO DE ANTIGÜEDAD;11220;bono de antigüedad
@@ -381,9 +381,9 @@ TELEFONÍA;21400;telefonía
 PAGO POR EL SERVICIO DE CONEXIÓN A INTERNET A TRAVÉS DE FIBRA OPTICA, 2 PLANES DE 10Mbps Y 30 Mbps RESPECTIVAMENTE;21600;pago por el servicio de conexión a internet a través de fibra optica, 2 planes de 10mbps y 30 mbps respectivamente
 PAGO POR EL SERVICIO DE HOSTING DE PÁGINA WEB DE CASA DE LA LIBERTAD.;21600;pago por el servicio de hosting de página web de casa de la libertad.
 SERVICIO DE LIMPIEZA INTEGRAL DE LOS TRES INMUEBLES DE CASA DE LA LIBERTAD;25400;servicio de limpieza integral de los tres inmuebles de casa de la libertad
-PAGO DE SUELDOS DEL PERSONAL DE PLANTA DE CDL;66100;pago de sueldos del personal de planta de
-PAGO DE SERVICIO DE LIMPIEZA INTEGRAL;66210;pago de servicio de limpieza integral
-PAGO DE RETENCIONES POR SUELDOS DEL PERSONAL DE PLANTA DE CASA DE LA LIBERTAD;66400;pago de retenciones por sueldos del personal de planta de casa de la libertad
+PAGO DE SUELDOS DEL PERSONAL DE PLANTA DE CDL DE LA PASADA GESTION;66100;pago de sueldos del personal de planta de de la pasada gestion
+PAGO DE SERVICIO DE LIMPIEZA INTEGRAL DE LA GESTION ANTERIOR;66210;pago de servicio de limpieza integral de la gestion anterior
+PAGO DEVENGADO DE RETENCIONES POR SUELDOS DEL PERSONAL DE PLANTA DE CASA DE LA LIBERTAD;66400;pago devengado de retenciones por sueldos del personal de planta de casa de la libertad
 PUBLICIDAD EN MEDIO ESCRITO;25500;publicidad en medio escrito
 CONTRATACIÓN DE PASANTIAS PARA AREA DE BIBLIOTECA Y ARCHIVO;26930;contratación de pasantias para area de biblioteca y archivo
 TRUPAN;31300;trupan
@@ -636,11 +636,11 @@ PEDESTALES DE MICROFONO;39800;pedestales de microfono
 MICROFONO CORBATERO;39800;microfono corbatero
 TASAS (ASEO URBANO Y ALUMBRADO PUBLICO);85100;tasas (aseo urbano y alumbrado publico)
 ENVIO DE PLANILLAS AL MINISTERIO DE TRABAJO;85900;envio de planillas al ministerio de trabajo
-PAGO DE SUELDOS DEL PERSONAL DE PLANTA DE CDL;66100;pago de sueldos del personal de planta de
-PAGO DE SERVICIO DE SEGURIDAD FÍSICA ESTATAL;66210;pago de servicio de seguridad física estatal
-PAGO DE SERVICIO DE LIMPIEZA INTEGRAL;66210;pago de servicio de limpieza integral
-PAGO DE RETENCIONES POR SERVICIO DE SEGURIDAD FÍSICA ESTATAL;66400;pago de retenciones por servicio de seguridad física estatal
-PAGO DE RETENCIONES POR SUELDOS DEL PERSONAL DE PLANTA DE CASA DE LA LIBERTAD;66400;pago de retenciones por sueldos del personal de planta de casa de la libertad
+PAGO DE SUELDOS DEL PERSONAL DE PLANTA DE CDL DEVENGADO DE LA GESTION PASADA;66100;pago de sueldos del personal de planta de devengado de la gestion pasada
+PAGO DE SERVICIO DE SEGURIDAD FÍSICA ESTATAL COMPROMETIDO DE LA ANTERIOR GESTION;66210;pago de servicio de seguridad física estatal comprometido de la anterior gestion
+PAGO DEVENGADO DE SERVICIO DE LIMPIEZA INTEGRAL DEL MES DE DICIEMBRE;66210;pago devengado de servicio de limpieza integral del mes de diciembre
+PAGO DE RETENCIONES POR SERVICIO DE SEGURIDAD FÍSICA ESTATAL COMPROMETIDO GESTION PASADA;66400;pago de retenciones por servicio de seguridad física estatal comprometido gestion pasada
+PAGO DEVENGADO DE RETENCIONES POR SUELDOS DEL PERSONAL DE PLANTA DE CASA DE LA LIBERTAD;66400;pago devengado de retenciones por sueldos del personal de planta de casa de la libertad
 BONO DE ANTIGÜEDAD;11220;bono de antigüedad
 AGUINALDOS;11400;aguinaldos
 ASIGNACIONES FAMILIARES;11600;asignaciones familiares
@@ -960,12 +960,12 @@ TALADRO DEL WALT A BATERIA DE 20 V;43700;taladro del walt a bateria de 20 v
 ESTUFA TIPO HONGO ACERO INOXIDABLE;43700;estufa tipo hongo acero inoxidable
 TASAS (ASEO URBANO Y ALUMBRADO PUBLICO);85100;tasas (aseo urbano y alumbrado publico)
 ENVIO DE PLANILLAS AL MINISTERIO DE TRABAJO;85900;envio de planillas al ministerio de trabajo
-PAGO DE SUELDOS DEL PERSONAL DE PLANTA DE CDL;66100;pago de sueldos del personal de planta de
-PAGO DE SERVICIO DE SEGURIDAD FÍSICA ESTATAL;66210;pago de servicio de seguridad física estatal
+PAGO DE SUELDOS DEL PERSONAL DE PLANTA DE CDL MES DICIEMBRE PASADA GESTION;66100;pago de sueldos del personal de planta de mes diciembre pasada gestion
+PAGO DE SERVICIO DE SEGURIDAD FÍSICA ESTATAL MES DICIEMBRE;66210;pago de servicio de seguridad física estatal mes diciembre
 PAGO POR EL MES DE DICIEMBRE DEL CONSULTOR INDIVIDUAL DE LINEA DE LA UNIDAD DE MUSEO;66210;pago por el mes de diciembre del consultor individual de linea de la unidad de museo
-PAGO DE SERVICIO DE LIMPIEZA INTEGRAL;66210;pago de servicio de limpieza integral
-PAGO DE RETENCIONES POR SERVICIO DE SEGURIDAD FÍSICA ESTATAL;66400;pago de retenciones por servicio de seguridad física estatal
-PAGO DE RETENCIONES POR SUELDOS DEL PERSONAL DE PLANTA DE CASA DE LA LIBERTAD;66400;pago de retenciones por sueldos del personal de planta de casa de la libertad
+PAGO COMPROMETIDO DE SERVICIO DE LIMPIEZA INTEGRAL MES DICIEMBRE;66210;pago comprometido de servicio de limpieza integral mes diciembre
+PAGO DE RETENCIONES POR SERVICIO DE SEGURIDAD FÍSICA ESTATAL DE LA GESTION PASADA;66400;pago de retenciones por servicio de seguridad física estatal de la gestion pasada
+PAGO DEVENGADO DE RETENCIONES POR SUELDOS DEL PERSONAL DE PLANTA DE CASA DE LA LIBERTAD;66400;pago devengado de retenciones por sueldos del personal de planta de casa de la libertad
 BONO DE ANTIGUEDAD;11220;bono de antiguedad
 AGUINALDOS;11400;aguinaldos
 SUELDOS;11700;sueldos
@@ -1225,8 +1225,8 @@ CAMARA TERMOGRAFICA;43700;camara termografica
 DETECTOR DIGITAL DE MATERIALES;43700;detector digital de materiales
 TASAS (ASEO URBANO Y ALUMBRADO PUBLICO);85100;tasas (aseo urbano y alumbrado publico)
 ENVIO DE PLANILLAS AL MINISTERIO DE TRABAJO;85900;envio de planillas al ministerio de trabajo
-PAGO DE SUELDOS DEL PERSONAL DE PLANTA DE CDL;66100;pago de sueldos del personal de planta de
-PAGO DE SERVICIO DE SEGURIDAD FÍSICA ESTATAL;66210;pago de servicio de seguridad física estatal
+PAGO DE SUELDOS DEL PERSONAL DE PLANTA DE CDL DEUDA GESTION PASADA;66100;pago de sueldos del personal de planta de deuda gestion pasada
+PAGO DE SERVICIO DE SEGURIDAD FÍSICA ESTATAL PENDIENTE ANTERIOR GESTION;66210;pago de servicio de seguridad física estatal pendiente anterior gestion
 PAGO POR EL MES DE DICIEMBRE DEL CONSULTOR INDIVIDUAL DE LINEA INFRAESTRUCTURA MUSEISTICA;66210;pago por el mes de diciembre del consultor individual de linea infraestructura museistica
 PAGO POR EL MES DE DICIEMBRE DEL CONSULTOR INDIVIDUAL DE LINEA PERSONAL DE APOYO - GUIAJE;66210;pago por el mes de diciembre del consultor individual de linea personal de apoyo - guiaje
 PAGO POR EL MES DE DICIEMBRE DEL CONSULTOR INDIVIDUAL DE LINEA PERSONAL DE APOYO - MUSEO;66210;pago por el mes de diciembre del consultor individual de linea personal de apoyo - museo

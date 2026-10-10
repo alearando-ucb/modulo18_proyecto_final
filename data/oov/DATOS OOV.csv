@@ -27,15 +27,15 @@ pago servicio de gas domiciliario mensual de casa de la libertad;21500
 factura consumo de gas domiciliario oficina administrativa;21500
 pago por el servicio de conexion a internet de oficina administrativa;21600
 servicio de hosting de pagina web institucional;21600
-pasajes aereos sucre-cochabamba-sucre ();22110
-pasajes aereos sucre-tarija-sucre ();22110
+pasajes aereos sucre-cochabamba-sucre;22110
+pasajes aereos sucre-tarija-sucre;22110
 pasaje aereo tramo sucre buenos aires para evento internacional;22120
 boleto de avion ruta sucre lima peru comision oficial;22120
-viaticos cobija () ;22210
-viaticos riberalta ();22210
-flete terrestre para traslado de mobiliario ();22300
+viaticos cobija oruro;22210
+viaticos riberalta;22210
+flete terrestre para el traslado de exposicion a cochabamba;22300
 flete sucre- camargo - sucre;22300
-pago prima de seguro contra terremotos;22500
+pago prima de seguro de incendio;22500
 seguro de responsabilidad civil para eventos institucionales;22500
 transporte de personal a unidades educativas de sucre;22600
 transporte de personal para capacitacion en oruro;22600
@@ -63,7 +63,7 @@ impresion de talonarios de boletos de visita guiada;25600
 impresion de guias de museo en formato bilingue;25600
 inscripcion a curso de capacitacion en gestion documental;25700
 matricula para seminario de conservacion patrimonial;25700
-servicios manuales (electricidad, plomeria y otros);25900
+servicio de reparacion de bateria de bano;25900
 servicio de jardineria para areas verdes institucionales;25900
 gastos judiciales por asesoramiento legal externo;26200
 servicios judiciales para defensa laboral institucional;26200

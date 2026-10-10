@@ -158,23 +158,50 @@ PARTIDA;ITEM
 85900;tramite de envio de planillas salariales ministerio de trabajo
 85900;acuotacion presentacion de planillas roe
 85900;pago por presentacion de planillas salariales gestion
-66100;pago de sueldos devengados no pagados de gestion anterior personal de planta
-66100;cancelacion de haberes devengados ejercicio pasado personal permanente
-66100;pago de remuneraciones pendientes de pago gestion anterior
-66100;regularizacion de sueldos devengados de la gestion pasada
-66100;pago de bonos devengados no pagados ejercicio anterior
-66100;liquidacion de sueldos pendientes gestion previa personal de planta
-66210;pago de jardineria devengada gestion anterior
-66210;cancelacion de servicio de limpieza integral devengado ejercicio pasado
-66210;pago de seguridad fisica devengada gestion previa
-66210;regularizacion de consultoria individual de linea devengada ejercicio anterior
-66210;pago de servicio de courier devengado no pagado gestion pasada
-66210;cancelacion de mantenimiento de ascensor devengado ejercicio anterior
-66210;pago de suscripcion de correo devengada gestion previa
-66210;regularizacion de servicio de limpieza integral pendiente de pago gestion anterior
-66210;pago de guardias de seguridad devengados ejercicio pasado
-66400;retenciones devengadas no pagadas gestion anterior
-66400;pago de retenciones pendientes de cancelacion ejercicio pasado
-66400;regularizacion de retenciones de sueldos devengadas gestion previa
-66400;cancelacion de retenciones por servicios devengados ejercicio anterior
-66400;pago de retenciones de jardineria devengada gestion pasada
+66100;pago de sueldos pendientes de pago gestion anterior personal de planta
+66100;cancelacion de haberes no cancelados ejercicio pasado personal permanente
+66100;pago de remuneraciones adeudadas gestion anterior
+66100;regularizacion de sueldos por pagar de la gestion pasada
+66100;pago de bonos no pagados ejercicio anterior
+66100;liquidacion de sueldos saldo deudor gestion previa personal de planta
+66100;haberes adeudados del mes anterior personal de planta
+66100;pago de sueldos por cancelar del ejercicio pasado
+66100;cancelacion de remuneraciones cuenta por pagar gestion previa
+66100;liquidacion de complementos salariales pendientes ejercicio anterior
+66100;pago de aguinaldos pendientes de cancelacion gestion pasada
+66100;saldo por pagar de haberes personal contratado del ano pasado
+66100;regularizacion de horas extras por cancelar gestion anterior
+66100;pago de asignaciones familiares adeudadas ejercicio pasado
+66100;cancelacion de aportes patronales pendientes gestion previa
+66210;pago de jardineria pendiente de pago gestion anterior
+66210;cancelacion de servicio de limpieza integral por pagar ejercicio pasado
+66210;pago de seguridad fisica no cancelada gestion previa
+66210;regularizacion de consultoria individual de linea adeudada ejercicio anterior
+66210;pago de servicio de courier por cancelar gestion pasada
+66210;cancelacion de mantenimiento de ascensor saldo deudor ejercicio anterior
+66210;pago de suscripcion de correo pendiente gestion previa
+66210;regularizacion de servicio de limpieza integral cuenta por pagar gestion anterior
+66210;pago de guardias de seguridad no cancelados ejercicio pasado
+66210;liquidacion de servicios de energia electrica adeudados gestion previa
+66210;gas domiciliario por pagar del ejercicio pasado
+66210;pago de alquiler de deposito pendiente de cancelacion gestion anterior
+66210;cancelacion de telefonia movil saldo deudor mes anterior
+66210;regularizacion de servicio de hosting por cancelar ejercicio pasado
+66210;pago de examen medico ocupacional pendiente gestion previa
+66210;saldo por pagar por servicios de limpieza integral del ano anterior
+66210;liquidacion de flete terrestre adeudado gestion pasada
+66210;pago de vigilancia nocturna por cancelar ejercicio pasado
+66210;regularizacion de seguro de incendio pendiente gestion previa
+66210;comisiones bancarias por pagar del ejercicio anterior
+66210;pago de servicio de courier saldo deudor gestion pasada
+66400;retenciones por servicios no pagadas gestion anterior
+66400;pago de retenciones de seguridad social pendientes ejercicio pasado
+66400;cancelacion de retenciones de IVA por pagar gestion previa
+66400;regularizacion de retenciones de timbres saldo deudor
+66400;retenciones adeudadas ejercicio anterior personal de planta
+66400;pago de retenciones por consultoria pendientes de cancelacion
+66400;retenciones cuenta por pagar del ejercicio pasado
+66400;cancelacion de retenciones de seguros vehiculares gestion previa
+66400;regularizacion de retenciones de jardineria por pagar ejercicio anterior
+66400;liquidacion de retenciones por servicios de limpieza pendientes
+66400;saldo deudor de retenciones gestion pasada

@@ -34,3 +34,89 @@ Con pocos ejemplos por partida, un modelo basado en vocabulario (TF-IDF) no gene
 - Macro-F1 de la partida: se reporta siempre.
 - Tasa de errores graves predefinidos entre grupos sobre el total evaluado: los pares de confusión graves, la gravedad y el denominador se definen y congelan antes de entrenar.
 - La métrica principal se define al congelar los errores graves.
+
+## Instalación
+
+Requisitos: Python 3.10 o superior. Se recomienda una máquina con GPU NVIDIA para el entrenamiento de la red neuronal, ya que el proceso en CPU puede tardar varias horas. La inferencia de la API funciona sin GPU.
+
+Para crear el entorno virtual e instalar las dependencias:
+
+```powershell
+python -m venv venv
+.\venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+```
+
+Las dependencias principales son pandas, numpy, scikit-learn, torch, sentence-transformers, fastapi y uvicorn.
+
+## Estructura del proyecto
+
+```
+├── app/
+│   ├── 01_prep_data.py        # Limpieza y preparación de datos
+│   ├── 02_features.py         # Generación de embeddings y features
+│   ├── 03_train.py            # Entrenamiento de la red neuronal
+│   ├── 04_evaluate.py         # Evaluación en prueba y OOV
+│   ├── logreg.py              # Regresión logística (línea base)
+│   ├── dnn.py                 # Arquitectura de la red neuronal
+│   ├── predict.py             # Lógica de inferencia
+│   ├── main.py                # Servidor FastAPI
+│   └── settings.py            # Constantes y rutas
+├── data/
+│   ├── raw/                   # Datos de entrada
+│   ├── clean/                 # Datos limpios y nombres de partidas
+│   └── oov/                   # Conjunto fuera de vocabulario
+├── artifacts/                 # Modelos y métricas entrenadas
+├── frontend/                  # Interfaz web
+├── docs/                      # Documentación de la API y los datos
+└── requirements.txt
+```
+
+## Ejecución
+
+El pipeline de entrenamiento se ejecuta en orden. Se recomienda usar una máquina con GPU para los pasos de generación de embeddings y entrenamiento de la red neuronal; en CPU estos pasos son significativamente más lentos.
+
+```powershell
+python -m app.01_prep_data    # Preparar datos limpios
+python -m app.02_features     # Generar embeddings (recomendado con GPU)
+python -m app.logreg          # Entrenar línea base
+python -m app.03_train        # Entrenar red neuronal (recomendado con GPU)
+python -m app.04_evaluate     # Evaluar ambos modelos
+```
+
+Para iniciar la API y el frontend:
+
+```powershell
+.\venv\Scripts\uvicorn.exe app.main:app --host 127.0.0.1 --port 8000
+```
+
+Luego abrir http://127.0.0.1:8000/ en el navegador. La interfaz ofrece un clasificador de ítems, ejemplos de prueba y un panel de evaluación con matrices de confusión comparables entre modelos y conjuntos.
+
+## Resultados
+
+Los modelos se evalúan en dos conjuntos: prueba (284 ítems con distribución similar al entrenamiento) y OOV (140 ítems nunca vistos, 2 por partida).
+
+| Métrica | DNN | Regresión logística |
+|---------|-----|---------------------|
+| Macro-F1 (prueba) | 0.8121 | 0.7879 |
+| Macro-F1 (OOV) | 0.7571 | 0.7463 |
+| Error grave (prueba) | 1.76% | 3.52% |
+| Error grave (OOV) | 5.00% | 6.43% |
+
+La DNN es el modelo ganador según el criterio congelado (mayor Macro-F1) y presenta menor tasa de error grave en ambos conjuntos.
+
+## API
+
+La API expone tres endpoints:
+
+- `GET /api/health` — estado del servicio.
+- `POST /api/predict` — clasifica un ítem de gasto. Acepta `{"item": "texto del gasto"}` y retorna la partida predicha, su nombre y el top-3 de puntajes.
+- `GET /api/metrics` — métricas de evaluación de ambos modelos.
+
+Ejemplo de predicción:
+
+```powershell
+Invoke-RestMethod -Uri "http://127.0.0.1:8000/api/predict" -Method Post -ContentType "application/json" -Body '{"item": "papel bond t/oficio"}'
+```
+
+La documentación interactiva de la API está disponible en http://127.0.0.1:8000/docs. Para más detalles consultar `docs/api.md`.

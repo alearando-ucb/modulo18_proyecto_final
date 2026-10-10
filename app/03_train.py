@@ -30,6 +30,7 @@ BATCH_SIZE = 32
 DROPOUT = 0.3
 PACIENCIA = 6
 WARMUP_RATIO = 0.1
+GRAD_CLIP = 0.5
 
 
 def cargar_datos():
@@ -91,6 +92,7 @@ def entrenar(modelo, train_loader, val_features, val_labels, device, weights_ten
             logits = modelo(features)
             loss = criterion(logits, labels)
             loss.backward()
+            torch.nn.utils.clip_grad_norm_(modelo.parameters(), GRAD_CLIP)
             optimizer.step()
             scheduler.step()
             total_loss += loss.item()
@@ -170,7 +172,7 @@ def main():
     total_params = sum(p.numel() for p in modelo.parameters())
     print(f"  parámetros: {total_params:,}")
 
-    print(f"Entrenando (LR={LR}, WD={WEIGHT_DECAY}, dropout={DROPOUT}, max_epochs={EPOCHS})...")
+    print(f"Entrenando (LR={LR}, WD={WEIGHT_DECAY}, dropout={DROPOUT}, clip={GRAD_CLIP}, max_epochs={EPOCHS})...")
     historial = entrenar(modelo, train_loader, X_val, y_val, device, weights_tensor)
 
     print(f"Guardando modelo en {MODELO_DNN}")

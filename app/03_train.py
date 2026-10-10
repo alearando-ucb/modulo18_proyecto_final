@@ -34,12 +34,16 @@ WARMUP_RATIO = 0.1
 
 
 def cargar_datos():
-    """Carga features, labels y groups desde embeddings.npz."""
+    """Carga features, labels y groups desde embeddings.npz, mapeando partidas a índices."""
     data = np.load(EMBEDDINGS, allow_pickle=True)
     features = data["features"]
-    labels = data["labels"].astype(np.int64)
+    labels_str = data["labels"].astype(str)
     groups = data["item_ids"]
-    partidas = data["partidas"]
+    partidas = data["partidas"].astype(str)
+
+    partida_to_idx = {p: i for i, p in enumerate(partidas)}
+    labels = np.array([partida_to_idx[p] for p in labels_str], dtype=np.int64)
+
     return features, labels, groups, partidas
 
 
@@ -66,7 +70,7 @@ def calcular_class_weights(labels_train, num_classes):
     weights = compute_class_weight("balanced", classes=clases_presentes, y=labels_train)
     class_weights = np.ones(num_classes, dtype=np.float32)
     for cls, w in zip(clases_presentes, weights):
-        class_weights[cls] = w
+        class_weights[int(cls)] = w
     return torch.tensor(class_weights, dtype=torch.float)
 
 

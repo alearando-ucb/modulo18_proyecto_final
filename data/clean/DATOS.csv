@@ -1454,8 +1454,6 @@ aporte patronal solidario personal;13131;aporte patronal solidario personal
 aporte patronal solidario tres por ciento;13131;aporte patronal solidario tres por ciento
 aporte patronal para vivienda personal;13200;aporte patronal para vivienda personal
 aporte patronal vivienda dos por ciento;13200;aporte patronal vivienda dos por ciento
-pago de sueldos devengados no pagados personal;66100;pago de sueldos devengados no pagados personal
-sueldos pendientes de pago personal de planta;66100;sueldos pendientes de pago personal de planta
 gastos judiciales del proceso institucional;26200;gastos judiciales del proceso institucional
 servicios judiciales para defensa institucional;26200;servicios judiciales para defensa institucional
 pago del servicio de energia electrica del medidor institucional;21200;pago del servicio de energia electrica del medidor institucional
@@ -1467,23 +1465,11 @@ presentacion de planillas salariales al registro obligatorio de empleadores;8590
 tramite de envio de planillas salariales ministerio de trabajo;85900;tramite de envio de planillas salariales ministerio de trabajo
 acuotacion presentacion de planillas roe;85900;acuotacion presentacion de planillas roe
 pago por presentacion de planillas salariales gestion;85900;pago por presentacion de planillas salariales gestion
-pago de sueldos devengados no pagados gestion anterior personal de planta;66100;pago de sueldos devengados no pagados gestion anterior personal de planta
-cancelacion de haberes devengados ejercicio pasado personal permanente;66100;cancelacion de haberes devengados ejercicio pasado personal permanente
-pago de remuneraciones devengadas gestion previa;66100;pago de remuneraciones devengadas gestion previa
-regularizacion de sueldos devengados de la gestion pasada;66100;regularizacion de sueldos devengados de la gestion pasada
-pago de bonos devengados no pagados ejercicio anterior;66100;pago de bonos devengados no pagados ejercicio anterior
-liquidacion de sueldos devengados gestion previa personal de planta;66100;liquidacion de sueldos devengados gestion previa personal de planta
-pago de jardineria devengada gestion anterior;66210;pago de jardineria devengada gestion anterior
-cancelacion de servicio de limpieza integral devengado ejercicio pasado;66210;cancelacion de servicio de limpieza integral devengado ejercicio pasado
-pago de seguridad fisica devengada gestion previa;66210;pago de seguridad fisica devengada gestion previa
-regularizacion de consultoria individual devengada ejercicio anterior;66210;regularizacion de consultoria individual devengada ejercicio anterior
-pago de servicio de courier devengado gestion pasada;66210;pago de servicio de courier devengado gestion pasada
-cancelacion de mantenimiento de ascensor devengado ejercicio anterior;66210;cancelacion de mantenimiento de ascensor devengado ejercicio anterior
-pago de suscripcion de correo devengada gestion previa;66210;pago de suscripcion de correo devengada gestion previa
-regularizacion de servicio de limpieza integral devengado gestion anterior;66210;regularizacion de servicio de limpieza integral devengado gestion anterior
-pago de guardias de seguridad devengados ejercicio pasado;66210;pago de guardias de seguridad devengados ejercicio pasado
-retenciones devengadas no pagadas gestion anterior;66400;retenciones devengadas no pagadas gestion anterior
-pago de retenciones devengadas ejercicio pasado;66400;pago de retenciones devengadas ejercicio pasado
-regularizacion de retenciones de sueldos devengadas gestion previa;66400;regularizacion de retenciones de sueldos devengadas gestion previa
-cancelacion de retenciones por servicios devengados ejercicio anterior;66400;cancelacion de retenciones por servicios devengados ejercicio anterior
-pago de retenciones de jardineria devengada gestion pasada;66400;pago de retenciones de jardineria devengada gestion pasada
+pago de remuneraciones devengadas de gestion anterior personal de planta;66100;pago de remuneraciones devengadas de gestion anterior personal de planta
+regularizacion de sueldos devengados de la gestion pasada personal contratado;66100;regularizacion de sueldos devengados de la gestion pasada personal contratado
+pago de jardineria devengada de la gestion anterior;66210;pago de jardineria devengada de la gestion anterior
+pago de mantenimiento de ascensor devengado ejercicio pasado;66210;pago de mantenimiento de ascensor devengado ejercicio pasado
+retenciones de sueldos devengadas de la gestion anterior;66400;retenciones de sueldos devengadas de la gestion anterior
+regularizacion de retenciones devengadas de la gestion pasada;66400;regularizacion de retenciones devengadas de la gestion pasada
+laptop gamer;43120;laptop gamer
+monitor lcd de 27 pulgadas xiaomi;43120;monitor lcd de 27 pulgadas xiaomi

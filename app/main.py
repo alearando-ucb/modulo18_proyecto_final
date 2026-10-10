@@ -5,10 +5,12 @@
 import json
 
 from fastapi import FastAPI, HTTPException
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
 from app.predict import cargar_modelos, predecir
-from app.settings import API_MAX_TEXT, API_TOP_K, METRICS
+from app.settings import API_MAX_TEXT, API_TOP_K, FRONTEND, METRICS, PARTIDAS_NOMBRES
 
 app = FastAPI(
     title="Clasificador de Partidas de Gasto",
@@ -51,3 +53,21 @@ def metrics():
         raise HTTPException(status_code=404, detail="Metricas no encontradas")
     with open(METRICS, "r", encoding="utf-8") as f:
         return json.load(f)
+
+
+@app.get("/api/partidas")
+def partidas():
+    """Retorna nombres cortos de partidas."""
+    if not PARTIDAS_NOMBRES.exists():
+        raise HTTPException(status_code=404, detail="Partidas no encontradas")
+    with open(PARTIDAS_NOMBRES, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+
+@app.get("/")
+def index():
+    """Sirve el frontend."""
+    return FileResponse(FRONTEND / "index.html")
+
+
+app.mount("/static", StaticFiles(directory=FRONTEND), name="static")

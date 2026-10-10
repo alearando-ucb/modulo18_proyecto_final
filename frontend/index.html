@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clasificador de Partidas de Gasto</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Clasificador de Partidas de Gasto</h1>
+      <p>Caso 21 de 38 · Clasificar en varias clases · FCBCB-CDL</p>
+    </div>
+  </header>
+
+  <div class="container">
+    <nav>
+      <button class="active" data-section="clasificador">Clasificador</button>
+      <button data-section="ejemplos">Ejemplos</button>
+      <button data-section="evaluacion">Evaluación</button>
+    </nav>
+
+    <!-- Clasificador -->
+    <section id="clasificador" class="active">
+      <h2>Clasificar ítem</h2>
+      <textarea id="item-input" placeholder="Escriba la descripción del gasto... (máx. 500 caracteres)"></textarea>
+      <button class="primary" id="btn-predict">Clasificar</button>
+      <div id="predict-result"></div>
+    </section>
+
+    <!-- Ejemplos -->
+    <section id="ejemplos">
+      <h2>Ejemplos de prueba</h2>
+      <p>Ítems con fronteras complejas entre partidas. Haga clic para clasificar.</p>
+      <ul class="examples-list" id="examples-list"></ul>
+      <div id="example-result"></div>
+    </section>
+
+    <!-- Evaluación -->
+    <section id="evaluacion">
+      <h2>Evaluación de modelos</h2>
+      <div id="metrics-content">
+        <p>Cargando métricas...</p>
+      </div>
+      <h2>Matriz de confusión</h2>
+      <div class="confusion-wrapper">
+        <div class="confusion-panel">
+          <div class="confusion-controls">
+            <select id="select-modelo-1">
+              <option value="dnn" selected>DNN</option>
+              <option value="logreg">Baseline</option>
+            </select>
+            <select id="select-dataset-1">
+              <option value="prueba" selected>Test</option>
+              <option value="oov">OOV</option>
+            </select>
+          </div>
+          <div class="confusion-container">
+            <canvas id="confusion-chart-1"></canvas>
+          </div>
+          <div class="error-table-container" id="error-table-1"></div>
+        </div>
+        <div class="confusion-panel">
+          <div class="confusion-controls">
+            <select id="select-modelo-2">
+              <option value="dnn">DNN</option>
+              <option value="logreg" selected>Baseline</option>
+            </select>
+            <select id="select-dataset-2">
+              <option value="prueba">Test</option>
+              <option value="oov" selected>OOV</option>
+            </select>
+          </div>
+          <div class="confusion-container">
+            <canvas id="confusion-chart-2"></canvas>
+          </div>
+          <div class="error-table-container" id="error-table-2"></div>
+        </div>
+      </div>
+      <div class="limits">
+        <h3>Límites del modelo</h3>
+        <ul>
+          <li>El dataset incluye datos sintéticos para partidas escasas.</li>
+        </ul>
+        <h3>¿Cómo leer la tabla de errores?</h3>
+        <ul>
+          <li><strong>Falsos negativos</strong>: ítems que realmente son de esa partida pero el modelo los clasificó en otra. El modelo se equivocó al identificarlos.</li>
+          <li><strong>Falsos positivos</strong>: ítems que el modelo predijo como esa partida pero en realidad son de otra. El modelo atribuyó incorrectamente esa partida.</li>
+          <li><strong>Aciertos</strong>: ítems correctamente clasificados (diagonal de la matriz).</li>
+          <li><strong>Ítems clasificados</strong>: total de ítems reales de esa partida en el conjunto de evaluación.</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <script src="/static/app.js"></script>
+  <script src="/static/confusion.js"></script>
+</body>
+</html>

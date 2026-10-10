@@ -25,7 +25,7 @@ from app.settings import (
 app = FastAPI(
     title="Clasificador de Partidas de Gasto",
     description="API para clasificar descripciones de gasto en partidas del COG",
-    version="1.0.0",
+    version="1.1.0",
 )
 
 

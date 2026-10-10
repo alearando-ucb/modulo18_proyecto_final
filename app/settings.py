@@ -16,7 +16,7 @@ RUTA_DATOS = DATA_RAW / "DATOS ENTRENAMIENTO V2.csv"
 DATA_SYNTHETIC = DATA_RAW / "DATOS SINTETICOS.csv"
 RUTA_CORRECCIONES = DATA_RAW / "DATOS CORRECCIONES.csv"
 RUTA_OOV = DATA_OOV / "DATOS OOV.csv"
-CLASIFICADOR = DATA_RAW / "clasificador_presupuestario_2026_enriquecido.csv"
+CLASIFICADOR = DATA_RAW / "clasificador_presupuestario_2026_corto.csv"
 
 EMBEDDINGS = ARTIFACTS / "embeddings.npz"
 EMBEDDING_DESCRIPCIONES = ARTIFACTS / "emb_descripciones.npy"

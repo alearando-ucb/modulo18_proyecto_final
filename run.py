@@ -151,7 +151,6 @@ def main():
 
     transcurrido = time.perf_counter() - inicio
     print(f"\nPipeline completado en {transcurrido:.0f}s.")
-    print("Si los artefactos cambiaron, commitea artifacts/ desde la maquina con GPU.")
 
     if args.no_serve:
         return

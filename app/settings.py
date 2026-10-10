@@ -9,11 +9,17 @@ ROOT = Path(__file__).resolve().parent.parent
 DATA_RAW = ROOT / "data" / "raw"
 DATA_CLEAN = ROOT / "data" / "clean"
 DATA_OOV = ROOT / "data" / "oov"
+ARTIFACTS = ROOT / "artifacts"
 
 RUTA_DATOS = DATA_RAW / "DATOS ENTRENAMIENTO.csv"
 DATA_SYNTHETIC = DATA_RAW / "DATOS SINTETICOS.csv"
 RUTA_OOV = DATA_OOV / "DATOS OOV.csv"
 CLASIFICADOR = DATA_RAW / "clasificador_presupuestario_2026_enriquecido.csv"
+
+EMBEDDINGS = ARTIFACTS / "embeddings.npz"
+MODELO_LOGREG = ARTIFACTS / "logreg.joblib"
+MODELO_DNN = ARTIFACTS / "dnn.pt"
+HISTORIAL_DNN = ARTIFACTS / "training_history.json"
 
 SEMILLA = 42
 

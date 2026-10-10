@@ -25,7 +25,7 @@ ARTIFACTS = ROOT / "artifacts"
 def leer_clasificador(ruta) -> dict:
     """Lee el clasificador enriquecido y devuelve dict partida -> descripcion."""
     desc = {}
-    with open(ruta, "r", encoding="iso-8859-1") as f:
+    with open(ruta, "r", encoding="utf-8-sig") as f:
         reader = csv.reader(f, delimiter=";")
         header = next(reader)
         partida_idx = 0

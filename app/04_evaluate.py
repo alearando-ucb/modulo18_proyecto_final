@@ -142,8 +142,8 @@ def generar_features_oov():
     partidas_train = data["partidas"].astype(str)
 
     desc_completas = {}
-    with open(CLASIFICADOR, "r", encoding="iso-8859-1") as f:
-        reader = pd.read_csv(f, sep=";", encoding="iso-8859-1", header=None)
+    with open(CLASIFICADOR, "r", encoding="utf-8-sig") as f:
+        reader = pd.read_csv(f, sep=";", encoding="utf-8-sig", header=None)
         for _, row in reader.iterrows():
             desc_completas[str(row[0]).strip()] = str(row[1]).strip()
 

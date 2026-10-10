@@ -11630,5 +11630,133 @@
     "label": "66400",
     "class_name": "regularizacion de retenciones devengadas de la gestion pasada",
     "sha256": "218ef7dbd0f84c3f539f053fe2d8646bdc1f3c44cbc55a967f3fe7e2d771d5c7"
+  },
+  {
+    "id": "a6d147420d21",
+    "group_id": "pago de servicios de limpieza integral de la sede central",
+    "split": "train",
+    "label": "25400",
+    "class_name": "pago de servicios de limpieza integral de la sede central",
+    "sha256": "a6d147420d217e6d7bffcf16033a9e640adec75453d3971702f846f1571c3e04"
+  },
+  {
+    "id": "4894c17fa102",
+    "group_id": "pago mensual de limpieza integral de los inmuebles institucionales",
+    "split": "train",
+    "label": "25400",
+    "class_name": "pago mensual de limpieza integral de los inmuebles institucionales",
+    "sha256": "4894c17fa10200edf05879710ef5d0388c590ff77383f1f8716e25bf5cd33ccf"
+  },
+  {
+    "id": "47576933740f",
+    "group_id": "pago de jardinera para plantas ornamentales de casa de la libertad",
+    "split": "train",
+    "label": "25900",
+    "class_name": "pago de jardinera para plantas ornamentales de casa de la libertad",
+    "sha256": "47576933740ffb493cfb778fa07a0bca4c56923f7b98c99f31dae578e25839af"
+  },
+  {
+    "id": "21ffae42878a",
+    "group_id": "pago de jardinera y poda de arboles del patio institucional",
+    "split": "train",
+    "label": "25900",
+    "class_name": "pago de jardinera y poda de arboles del patio institucional",
+    "sha256": "21ffae42878a9654f852a351eba3b80cf41334481fad3cbca1ccbf66e64678a2"
+  },
+  {
+    "id": "0d847e9c1610",
+    "group_id": "pago de seguridad privada para la vigilancia de la sede",
+    "split": "train",
+    "label": "26610",
+    "class_name": "pago de seguridad privada para la vigilancia de la sede",
+    "sha256": "0d847e9c1610e0a4f2a46e5d4fe29b8d5f2d1cd43de2fde1762741c06660fdc1"
+  },
+  {
+    "id": "9210e3adcc2b",
+    "group_id": "pago mensual de servicios de seguridad privada",
+    "split": "train",
+    "label": "26610",
+    "class_name": "pago mensual de servicios de seguridad privada",
+    "sha256": "9210e3adcc2b402b71b54313fa317723eeab81369fb9c1be15f3b7e34709d46f"
+  },
+  {
+    "id": "5a0d75fdceba",
+    "group_id": "pago de alquiler de oficina para la administracion",
+    "split": "train",
+    "label": "23400",
+    "class_name": "pago de alquiler de oficina para la administracion",
+    "sha256": "5a0d75fdceba4d01676bea5dbaf849b0cb64c5baa4f94f90c08b08f9308a417a"
+  },
+  {
+    "id": "4bf81bd88837",
+    "group_id": "pago por alquiler de ambiente para archivo institucional",
+    "split": "train",
+    "label": "23400",
+    "class_name": "pago por alquiler de ambiente para archivo institucional",
+    "sha256": "4bf81bd88837beab0ba90e93aba0a173ec8c219cb3876602a7af52738f7bdd32"
+  },
+  {
+    "id": "bf903375f7e4",
+    "group_id": "pago de servicios de comunicacion institucional",
+    "split": "train",
+    "label": "21100",
+    "class_name": "pago de servicios de comunicacion institucional",
+    "sha256": "bf903375f7e4aeb442dc04abfd1b66f46bd07679cdc7a585fb6190abdc9239ab"
+  },
+  {
+    "id": "85a8ad6945f0",
+    "group_id": "pago del servicio de mensajeria y encomiendas de la institucion",
+    "split": "train",
+    "label": "21100",
+    "class_name": "pago del servicio de mensajeria y encomiendas de la institucion",
+    "sha256": "85a8ad6945f0727e33227e70e4a49c87db4861ab970ab76b8ecfebfe2016a542"
+  },
+  {
+    "id": "79d6b1a80c97",
+    "group_id": "factura mensual de agua y alcantarillado de la sede",
+    "split": "train",
+    "label": "21300",
+    "class_name": "factura mensual de agua y alcantarillado de la sede",
+    "sha256": "79d6b1a80c9743914c48b0bd13012103a3d83e1926911776ae5f71c99aa93aa2"
+  },
+  {
+    "id": "8927493a7b66",
+    "group_id": "pago del consumo de agua del mes en la institucion",
+    "split": "train",
+    "label": "21300",
+    "class_name": "pago del consumo de agua del mes en la institucion",
+    "sha256": "8927493a7b66532da60e5db10b46ca7968030fc31d8711f2db882e5829d54469"
+  },
+  {
+    "id": "cfbd3eda9ab3",
+    "group_id": "pago de publicidad en prensa local del departamento",
+    "split": "train",
+    "label": "25500",
+    "class_name": "pago de publicidad en prensa local del departamento",
+    "sha256": "cfbd3eda9ab3787adaa32e55731377875bdb449a6a58a34530b9a6a79692d6cb"
+  },
+  {
+    "id": "a89f68fda23a",
+    "group_id": "pago por avisos publicitarios en medios impresos",
+    "split": "train",
+    "label": "25500",
+    "class_name": "pago por avisos publicitarios en medios impresos",
+    "sha256": "a89f68fda23a3787d4e3641970bba2891636cee3e4758300cd837a586662bb7f"
+  },
+  {
+    "id": "0dcae9a0a971",
+    "group_id": "pago de gastos judiciales del proceso institucional",
+    "split": "train",
+    "label": "26200",
+    "class_name": "pago de gastos judiciales del proceso institucional",
+    "sha256": "0dcae9a0a9714f946ef82681f5339d19c91bfd0dc70f6dd3c84949d3c193f737"
+  },
+  {
+    "id": "de5038cd354f",
+    "group_id": "pago por honorarios de abogados externos del proceso",
+    "split": "train",
+    "label": "26200",
+    "class_name": "pago por honorarios de abogados externos del proceso",
+    "sha256": "de5038cd354f60e3b9e3b77bd09d2de01b08c9e58df3420c6a6b15ab8272e8cd"
   }
 ]

@@ -1,0 +1,3 @@
+data/clean/*.csv -text
+data/raw/*.csv -text
+data/oov/*.csv -text

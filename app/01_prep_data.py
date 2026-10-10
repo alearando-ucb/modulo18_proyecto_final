@@ -72,7 +72,7 @@ def leer_correcciones(ruta: Path) -> list[dict]:
                 continue
             rows.append({
                 "partida": row[0].strip(),
-                "item": row[1].strip(),
+                "item": re.sub(r"\s+", " ", row[1]).strip(),
                 "usuario": row[2].strip(),
                 "fecha": row[3].strip(),
                 "predicha": row[4].strip() if len(row) > 4 else "",
@@ -107,6 +107,7 @@ def main():
     rows = rows_real + rows_sintetico
 
     for r in rows:
+        r["item"] = re.sub(r"\s+", " ", r["item"]).strip()
         r["item_limpio"] = limpiar_texto(r["item"])
 
     conteo = Counter(r["partida"] for r in rows)
@@ -127,7 +128,7 @@ def main():
         })
 
     df = pd.DataFrame(rows_filtrados)
-    df.to_csv(DATA_CLEAN / "DATOS.csv", index=False, sep=";", encoding="iso-8859-1")
+    df.to_csv(DATA_CLEAN / "DATOS.csv", index=False, sep=";", encoding="iso-8859-1", lineterminator="\n")
 
     with open(DATA_CLEAN / "manifest.json", "w", encoding="utf-8") as f:
         json.dump(manifest, f, ensure_ascii=False, indent=2)

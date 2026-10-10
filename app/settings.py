@@ -17,6 +17,7 @@ RUTA_OOV = DATA_OOV / "DATOS OOV.csv"
 CLASIFICADOR = DATA_RAW / "clasificador_presupuestario_2026_enriquecido.csv"
 
 EMBEDDINGS = ARTIFACTS / "embeddings.npz"
+EMBEDDING_DESCRIPCIONES = ARTIFACTS / "emb_descripciones.npy"
 MODELO_LOGREG = ARTIFACTS / "logreg.joblib"
 MODELO_DNN = ARTIFACTS / "dnn.pt"
 HISTORIAL_DNN = ARTIFACTS / "training_history.json"

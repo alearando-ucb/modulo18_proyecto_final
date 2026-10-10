@@ -13,7 +13,7 @@ import torch
 from app.dnn import DNNPartidas
 from app.settings import (
     CLASIFICADOR,
-    EMBEDDINGS,
+    EMBEDDING_DESCRIPCIONES,
     MODELO_DNN,
     MODELO_LOGREG,
     MODELO_SEMANTICO,
@@ -73,9 +73,8 @@ def cargar_modelos():
 
     _descripciones = [_desc_completas.get(p, "") for p in _partidas]
 
-    print("Cargando embeddings de descripciones desde npz...")
-    data = np.load(EMBEDDINGS, allow_pickle=True)
-    _emb_desc = data["emb_desc"]
+    print("Cargando embeddings de descripciones...")
+    _emb_desc = np.load(EMBEDDING_DESCRIPCIONES)
 
     print("Cargando nombres de partidas...")
     with open(PARTIDAS_NOMBRES, "r", encoding="utf-8") as f:

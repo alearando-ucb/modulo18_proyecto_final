@@ -13,6 +13,7 @@ from app.settings import (
     CLASIFICADOR,
     DATA_CLEAN,
     DIM_EMBEDDINGS,
+    EMBEDDING_DESCRIPCIONES,
     MODELO_SEMANTICO,
     ROOT,
     fijar_semillas,
@@ -99,22 +100,24 @@ def main():
 
     labels = df["partida"].astype(str).values
 
-    # emb_desc: embeddings de las descripciones oficiales del clasificador,
-    # exportados para que la API los cargue sin re-codificar en cada inicio.
     np.savez(
         ARTIFACTS / "embeddings.npz",
         features=features.cpu().numpy(),
         labels=labels,
         partidas=np.array(partidas_con_desc),
         item_ids=df["item_limpio"].values,
-        emb_desc=emb_desc.cpu().numpy(),
     )
+
+    # emb_descripciones: embeddings de las descripciones oficiales del clasificador.
+    # Archivo separado para que la API los cargue sin depender de los datos de entrenamiento.
+    np.save(EMBEDDING_DESCRIPCIONES, emb_desc.cpu().numpy())
 
     print(f"Guardado en {ARTIFACTS / 'embeddings.npz'}")
     print(f"  - features: {features.shape}")
     print(f"  - labels: {labels.shape}")
     print(f"  - partidas con score: {len(partidas_con_desc)}")
-    print(f"  - emb_desc: {emb_desc.shape}")
+    print(f"Guardado en {EMBEDDING_DESCRIPCIONES}")
+    print(f"  - emb_descripciones: {emb_desc.shape}")
 
 
 if __name__ == "__main__":

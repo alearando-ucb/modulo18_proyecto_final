@@ -47,9 +47,9 @@ const EJEMPLOS = [
   },
   {
     item: "monitor adicional para estacion de trabajo",
-    partida: "43500",
-    nombre: "Equipo de comunicación",
-    frontera: "43500 vs 39800 (equipo vs repuesto)"
+    partida: "43120",
+    nombre: "Equipo de computación",
+    frontera: "43120 vs 39800 (equipo vs repuesto)"
   }
 ];
 

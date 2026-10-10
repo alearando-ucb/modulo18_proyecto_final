@@ -118,6 +118,7 @@ def predecir(texto: str, top_k: int = 3, modelo: str = "dnn") -> dict:
     elapsed_ms = round((time.perf_counter() - inicio) * 1000, 1)
 
     return {
+        "item": texto,
         "partida_predicha": scores[0]["partida"],
         "nombre_predicho": scores[0]["nombre"],
         "scores": scores,

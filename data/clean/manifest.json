@@ -11496,267 +11496,139 @@
     "sha256": "35df0219f2c1ddcddca70b97a391d3264c03a3b0d8b581ac8b749fdf314f1530"
   },
   {
-    "id": "4b577bb7a9ac",
-    "group_id": "pago de sueldos devengados no pagados personal",
-    "split": "train",
-    "label": "66100",
-    "class_name": "pago de sueldos devengados no pagados personal",
-    "sha256": "4b577bb7a9acc0788a695f9ab5151e848e5d228b554691e8b235099e64fb826b"
-  },
-  {
-    "id": "95b561a5f83f",
-    "group_id": "sueldos pendientes de pago personal de planta",
-    "split": "train",
-    "label": "66100",
-    "class_name": "sueldos pendientes de pago personal de planta",
-    "sha256": "95b561a5f83f73d3cd7ad9c7f3214a4a0500fb044e2935ba26492983467ccfa8"
-  },
-  {
-    "id": "7e8f95602b44",
+    "id": "d8c2b4d7be5f",
     "group_id": "gastos judiciales del proceso institucional",
     "split": "train",
     "label": "26200",
     "class_name": "gastos judiciales del proceso institucional",
-    "sha256": "7e8f95602b4423ee8d252eda77d7f2108832ee6fca97e1f48ed0023b88965d21"
+    "sha256": "d8c2b4d7be5f78b08a23625fb38679d8709b045dc6c84ce1bb632db5ed586191"
   },
   {
-    "id": "a0ddeb121457",
+    "id": "fe1f17f505bc",
     "group_id": "servicios judiciales para defensa institucional",
     "split": "train",
     "label": "26200",
     "class_name": "servicios judiciales para defensa institucional",
-    "sha256": "a0ddeb121457a2d523a1719903ef22ddbbead0c806f974a12b0e9acf36a4df4c"
+    "sha256": "fe1f17f505bce1029827af58aa396133f381103418638e7e97038f6e9ff6269a"
   },
   {
-    "id": "a0b688b2b29d",
+    "id": "5f3cde92e1ac",
     "group_id": "pago del servicio de energia electrica del medidor institucional",
     "split": "train",
     "label": "21200",
     "class_name": "pago del servicio de energia electrica del medidor institucional",
-    "sha256": "a0b688b2b29dee563017eaa2d2a89310723e4ba50c73b180adfd7053c1c0ccd1"
+    "sha256": "5f3cde92e1ac08d60fc696b681eed42c8b909e255fd8dc2af928ac28a6434283"
   },
   {
-    "id": "bb2f7b45213e",
+    "id": "02a9438895bc",
     "group_id": "factura mensual de consumo de energia electrica",
     "split": "train",
     "label": "21200",
     "class_name": "factura mensual de consumo de energia electrica",
-    "sha256": "bb2f7b45213e9898e31737437d100067fa6b8c299bcf2e8067cfc4f6a363e695"
+    "sha256": "02a9438895bc621efd4be77e649c371c7a7198893bad89c8ee70429c0251dea8"
   },
   {
-    "id": "741ea6ae0a51",
+    "id": "e80ad2b93020",
     "group_id": "pago de luz electrica sede central",
     "split": "train",
     "label": "21200",
     "class_name": "pago de luz electrica sede central",
-    "sha256": "741ea6ae0a5116f564f177c13d19b28f26770cc95bc26cc8dc272afecffe2682"
+    "sha256": "e80ad2b93020543a0e606c17d474896486c11ab8d7524b53222cdc5c7da8230f"
   },
   {
-    "id": "86e69c791dc3",
+    "id": "e1d57d06eeac",
     "group_id": "servicio de energia electrica edificio institucional",
     "split": "train",
     "label": "21200",
     "class_name": "servicio de energia electrica edificio institucional",
-    "sha256": "86e69c791dc30dd3dc344b1818d4c5a9880987cec6a85d5be1cb0baa052c6d92"
+    "sha256": "e1d57d06eeac36576973240c2d60d3a0c1e763916a3e4a768ad76af201da3280"
   },
   {
-    "id": "62fd81d4664b",
+    "id": "96b46893a0b6",
     "group_id": "pago por envio de planillas al ministerio de trabajo",
     "split": "train",
     "label": "85900",
     "class_name": "pago por envio de planillas al ministerio de trabajo",
-    "sha256": "62fd81d4664b59498c6eb7d4b34af674ad997fd7e5fb69ef0e6ad846db5d6966"
+    "sha256": "96b46893a0b60503568d73eba494f1a047a57c129ee1445925ac139e35625c91"
   },
   {
-    "id": "c038547cc153",
+    "id": "873ded94d627",
     "group_id": "presentacion de planillas salariales al registro obligatorio de empleadores",
     "split": "train",
     "label": "85900",
     "class_name": "presentacion de planillas salariales al registro obligatorio de empleadores",
-    "sha256": "c038547cc1533a629d09799968ba6f2d81df1894c13522b6600942e23b61a9ee"
+    "sha256": "873ded94d6274cc8fd76955fa935311749bbc0d415b7ce85c7740f9a30b45a04"
   },
   {
-    "id": "c86a9708fe55",
+    "id": "ab9f514a5b5d",
     "group_id": "tramite de envio de planillas salariales ministerio de trabajo",
     "split": "train",
     "label": "85900",
     "class_name": "tramite de envio de planillas salariales ministerio de trabajo",
-    "sha256": "c86a9708fe5531bd77e08789ae3d0775c8708addc843d502b644db42e417db21"
+    "sha256": "ab9f514a5b5dac445d124c0ee1046cb64adb18d228d3fc777e748a624936b60d"
   },
   {
-    "id": "98b40b8693e3",
+    "id": "eeb48a3c25c4",
     "group_id": "acuotacion presentacion de planillas roe",
     "split": "train",
     "label": "85900",
     "class_name": "acuotacion presentacion de planillas roe",
-    "sha256": "98b40b8693e3016e9588dac55afb7f1303944015123700151491bba91f65e62c"
+    "sha256": "eeb48a3c25c47b5b2184c86c00d7d4d48c39964f41bc8f37b18041749736e9be"
   },
   {
-    "id": "95f6d98a219d",
+    "id": "5e4b51742d3d",
     "group_id": "pago por presentacion de planillas salariales gestion",
     "split": "train",
     "label": "85900",
     "class_name": "pago por presentacion de planillas salariales gestion",
-    "sha256": "95f6d98a219d4bf39dd5b3175df20eeb72647a9355f586d989835daf64a85840"
+    "sha256": "5e4b51742d3dda63f5dddd786dbfc13bacadecc90881dc6a680cdd4d326f11ad"
   },
   {
-    "id": "63336f8368ac",
-    "group_id": "pago de sueldos devengados no pagados gestion anterior personal de planta",
+    "id": "d52c09290c54",
+    "group_id": "pago de remuneraciones devengadas de gestion anterior personal de planta",
     "split": "train",
     "label": "66100",
-    "class_name": "pago de sueldos devengados no pagados gestion anterior personal de planta",
-    "sha256": "63336f8368acbd0231585bc946d1ed3031cfd8210ac12b66ce591ed323f43971"
+    "class_name": "pago de remuneraciones devengadas de gestion anterior personal de planta",
+    "sha256": "d52c09290c547d0377f7753f0e5dcae7c356a8ae271ea17a2744ad9375f14689"
   },
   {
-    "id": "96e18ce40817",
-    "group_id": "cancelacion de haberes devengados ejercicio pasado personal permanente",
+    "id": "01962a8c6fb6",
+    "group_id": "regularizacion de sueldos devengados de la gestion pasada personal contratado",
     "split": "train",
     "label": "66100",
-    "class_name": "cancelacion de haberes devengados ejercicio pasado personal permanente",
-    "sha256": "96e18ce40817bf4eaee7c2d35f8355bc5c5ab652a03742e9a61e03b7bd773481"
+    "class_name": "regularizacion de sueldos devengados de la gestion pasada personal contratado",
+    "sha256": "01962a8c6fb67d699d27a8360caa6322221e9181734bd8120e9b9d1396f117ff"
   },
   {
-    "id": "46aab4ebb453",
-    "group_id": "pago de remuneraciones devengadas gestion previa",
-    "split": "train",
-    "label": "66100",
-    "class_name": "pago de remuneraciones devengadas gestion previa",
-    "sha256": "46aab4ebb453eef68dd668e40f2ed5b768af45d489c87194a588ba090715988b"
-  },
-  {
-    "id": "86c4622b4dfe",
-    "group_id": "regularizacion de sueldos devengados de la gestion pasada",
-    "split": "train",
-    "label": "66100",
-    "class_name": "regularizacion de sueldos devengados de la gestion pasada",
-    "sha256": "86c4622b4dfe4363bce9f0ea70fddae1975b2c7f8d9843b9fde9bdc13566b483"
-  },
-  {
-    "id": "4ca580dea269",
-    "group_id": "pago de bonos devengados no pagados ejercicio anterior",
-    "split": "train",
-    "label": "66100",
-    "class_name": "pago de bonos devengados no pagados ejercicio anterior",
-    "sha256": "4ca580dea269e5a8d5c59ecae47672e1423fd44ce8c515f770599b31dabc1637"
-  },
-  {
-    "id": "bdab78927a12",
-    "group_id": "liquidacion de sueldos devengados gestion previa personal de planta",
-    "split": "train",
-    "label": "66100",
-    "class_name": "liquidacion de sueldos devengados gestion previa personal de planta",
-    "sha256": "bdab78927a12a8d729be618023111fc453b57baaa77572f409d3a3dff85b92d6"
-  },
-  {
-    "id": "1a162f03042f",
-    "group_id": "pago de jardineria devengada gestion anterior",
+    "id": "317deafc40b2",
+    "group_id": "pago de jardineria devengada de la gestion anterior",
     "split": "train",
     "label": "66210",
-    "class_name": "pago de jardineria devengada gestion anterior",
-    "sha256": "1a162f03042f4bedcbf1d8ca4976d32e5a648b01bb6d5519af26f41db6c874d8"
+    "class_name": "pago de jardineria devengada de la gestion anterior",
+    "sha256": "317deafc40b2201e836d944c3a7bcfaeddfb96319cd2a0cb4bdc6a1bfe46b689"
   },
   {
-    "id": "aa5a1dfb1fb5",
-    "group_id": "cancelacion de servicio de limpieza integral devengado ejercicio pasado",
+    "id": "d7a44decd4b3",
+    "group_id": "pago de mantenimiento de ascensor devengado ejercicio pasado",
     "split": "train",
     "label": "66210",
-    "class_name": "cancelacion de servicio de limpieza integral devengado ejercicio pasado",
-    "sha256": "aa5a1dfb1fb517ee9cb8fc14062c5475d02e9d2471e244db7a6d8249ae0156a4"
+    "class_name": "pago de mantenimiento de ascensor devengado ejercicio pasado",
+    "sha256": "d7a44decd4b31d3b2388dd77895ca375853fcfed582e79481292863ef88392b4"
   },
   {
-    "id": "436fcf641712",
-    "group_id": "pago de seguridad fisica devengada gestion previa",
-    "split": "train",
-    "label": "66210",
-    "class_name": "pago de seguridad fisica devengada gestion previa",
-    "sha256": "436fcf6417123bf4aa7658689b03619c14a488ed551f05011982f6eb975d84d2"
-  },
-  {
-    "id": "8565b3bd2f97",
-    "group_id": "regularizacion de consultoria individual devengada ejercicio anterior",
-    "split": "train",
-    "label": "66210",
-    "class_name": "regularizacion de consultoria individual devengada ejercicio anterior",
-    "sha256": "8565b3bd2f97a981c0ef815597338f121a037cf81e95c9a8cbbadfeb081d251b"
-  },
-  {
-    "id": "4864c5c1e639",
-    "group_id": "pago de servicio de courier devengado gestion pasada",
-    "split": "train",
-    "label": "66210",
-    "class_name": "pago de servicio de courier devengado gestion pasada",
-    "sha256": "4864c5c1e639e8be6bbbdb2fa76e6dcc49943e837386bfa49b8322011d8ff185"
-  },
-  {
-    "id": "7f25fefaff97",
-    "group_id": "cancelacion de mantenimiento de ascensor devengado ejercicio anterior",
-    "split": "train",
-    "label": "66210",
-    "class_name": "cancelacion de mantenimiento de ascensor devengado ejercicio anterior",
-    "sha256": "7f25fefaff9724770ca231725f1bce0228475fc289483d16c132f8603fde8529"
-  },
-  {
-    "id": "c6ddf248edaf",
-    "group_id": "pago de suscripcion de correo devengada gestion previa",
-    "split": "train",
-    "label": "66210",
-    "class_name": "pago de suscripcion de correo devengada gestion previa",
-    "sha256": "c6ddf248edaf0447089fbbd6c55c3695f408cf66f8a2afd56feae50be723dff0"
-  },
-  {
-    "id": "7360f1031e7f",
-    "group_id": "regularizacion de servicio de limpieza integral devengado gestion anterior",
-    "split": "train",
-    "label": "66210",
-    "class_name": "regularizacion de servicio de limpieza integral devengado gestion anterior",
-    "sha256": "7360f1031e7fc1897cb12dd83e2f654e1e7d3a9669b2679f1e88523bed9aa319"
-  },
-  {
-    "id": "29dd203f43c3",
-    "group_id": "pago de guardias de seguridad devengados ejercicio pasado",
-    "split": "train",
-    "label": "66210",
-    "class_name": "pago de guardias de seguridad devengados ejercicio pasado",
-    "sha256": "29dd203f43c357c61da02dd4ba1f920b9baecf36ed15ffe622926d7cf89363c4"
-  },
-  {
-    "id": "bfb841bd6ae4",
-    "group_id": "retenciones devengadas no pagadas gestion anterior",
+    "id": "dc0e83cbb0b1",
+    "group_id": "retenciones de sueldos devengadas de la gestion anterior",
     "split": "train",
     "label": "66400",
-    "class_name": "retenciones devengadas no pagadas gestion anterior",
-    "sha256": "bfb841bd6ae485b2d6024e01e1b198ff95672e54df1c6ca75e9a476c7feef2d0"
+    "class_name": "retenciones de sueldos devengadas de la gestion anterior",
+    "sha256": "dc0e83cbb0b188c85939f8872d9a5b58022f134cc48eb39ae63a498fbc8ee955"
   },
   {
-    "id": "4ac9424c66d2",
-    "group_id": "pago de retenciones devengadas ejercicio pasado",
+    "id": "218ef7dbd0f8",
+    "group_id": "regularizacion de retenciones devengadas de la gestion pasada",
     "split": "train",
     "label": "66400",
-    "class_name": "pago de retenciones devengadas ejercicio pasado",
-    "sha256": "4ac9424c66d2068f4acab0ab690aa3fcb4da178879a5006e26d59d3a9f214a3a"
-  },
-  {
-    "id": "93db40727e76",
-    "group_id": "regularizacion de retenciones de sueldos devengadas gestion previa",
-    "split": "train",
-    "label": "66400",
-    "class_name": "regularizacion de retenciones de sueldos devengadas gestion previa",
-    "sha256": "93db40727e76c2784f59d376d7c9c7bbee39a34ab0f3a4431960456132cc39cb"
-  },
-  {
-    "id": "55d3bdf2d62a",
-    "group_id": "cancelacion de retenciones por servicios devengados ejercicio anterior",
-    "split": "train",
-    "label": "66400",
-    "class_name": "cancelacion de retenciones por servicios devengados ejercicio anterior",
-    "sha256": "55d3bdf2d62a2b602687239157147d50921777c0c5dcbe8b481ea54eea041f23"
-  },
-  {
-    "id": "1f0c1c75272e",
-    "group_id": "pago de retenciones de jardineria devengada gestion pasada",
-    "split": "train",
-    "label": "66400",
-    "class_name": "pago de retenciones de jardineria devengada gestion pasada",
-    "sha256": "1f0c1c75272ecb9858488bd90c0dcdd8f0ee8514107d5ae4d2ab8b28057841b7"
+    "class_name": "regularizacion de retenciones devengadas de la gestion pasada",
+    "sha256": "218ef7dbd0f84c3f539f053fe2d8646bdc1f3c44cbc55a967f3fe7e2d771d5c7"
   }
 ]

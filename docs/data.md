@@ -17,6 +17,12 @@ Documentación técnica de los datos del clasificador presupuestario.
 - **Columnas:** `ITEM` (descripción del gasto) y `PARTIDA` (código de 5 dígitos del Clasificador por Objeto del Gasto del MEF)
 - **Registros:** 1,292 filas, 70 partidas únicas
 
+## Conflicto partidas del grupo 20000 y 60000
+
+Existia un conflicto entre los grupos macro 20000 y 60000, ya que ambos son pagos con las mismas categorías, la diferencia es la temporalidad, el grupo 60000 se usa para inscribir pagos de la gestión pasada.
+En el dataset de origen no existe diferencia entre las descripciones de gastos de ambos grupos, por lo cual todo se clasificaba en el grupo 60000 ya que es el grupo mayoritario de los dos.
+Como solución se modificó la descripción de los items del grupo 60000 agregando palabras que denotan temporalidad, se creo el archivo **DATA ENTRENAMIENTO V2.csv** que contiene estos cambios.
+
 ## Datos sintéticos
 
 - **Archivo:** `data/raw/DATOS SINTETICOS.csv`

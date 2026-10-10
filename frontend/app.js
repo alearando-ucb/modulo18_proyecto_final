@@ -109,6 +109,7 @@ function mostrarResultado(data, contenedorId) {
         <strong>${data.partida_predicha}</strong> — ${data.nombre_predicho}
       </div>
       <p>Confianza: ${(data.confianza * 100).toFixed(1)}% · ${data.elapsed_ms} ms</p>
+      <button class="btn-correct" onclick="abrirModal('${contenedorId.replace(/'/g, "\\'")}', '${data.partida_predicha.replace(/'/g, "\\'")}')">Corregir</button>
       <h3 style="margin-top:15px;">Top-${data.scores.length}</h3>
   `;
 
@@ -127,6 +128,8 @@ function mostrarResultado(data, contenedorId) {
 
   html += "</div>";
   contenedor.innerHTML = html;
+  contenedor.dataset.item = data.item;
+  contenedor.dataset.predicha = data.partida_predicha;
 }
 
 function mostrarError(contenedorId, mensaje) {
@@ -242,3 +245,117 @@ function renderizarMetricas(data) {
 }
 
 renderizarEjemplos();
+
+// Modal de corrección
+let partidaSeleccionada = null;
+let itemCorreccion = "";
+let predichaCorreccion = "";
+
+function abrirModal(contenedorId, partidaPredicha) {
+  const contenedor = document.getElementById(contenedorId);
+  itemCorreccion = contenedor.dataset.item || "";
+  predichaCorreccion = partidaPredicha;
+
+  document.getElementById("modal-item").value = itemCorreccion;
+  document.getElementById("modal-predicha").value = predichaCorreccion;
+  document.getElementById("modal-buscar").value = "";
+  document.getElementById("modal-usuario").value = "";
+  document.getElementById("modal-seleccionada").textContent = "Ninguna seleccionada";
+  document.getElementById("modal-error").textContent = "";
+  partidaSeleccionada = null;
+
+  filtrarPartidas("");
+  document.getElementById("modal-overlay").classList.add("active");
+  document.getElementById("modal-buscar").focus();
+}
+
+function cerrarModal() {
+  document.getElementById("modal-overlay").classList.remove("active");
+}
+
+function filtrarPartidas(query) {
+  const lista = document.getElementById("modal-lista");
+  const q = query.toLowerCase().trim();
+  const items = Object.entries(partidasNombres)
+    .filter(([code, nombre]) => {
+      if (!q) return true;
+      return code.includes(q) || nombre.toLowerCase().includes(q);
+    })
+    .slice(0, 50);
+
+  lista.innerHTML = "";
+  items.forEach(([code, nombre]) => {
+    const div = document.createElement("div");
+    div.className = "partida-opcion";
+    div.innerHTML = `<strong>${code}</strong> — ${nombre}`;
+    div.addEventListener("click", () => {
+      partidaSeleccionada = code;
+      document.getElementById("modal-seleccionada").textContent = `${code} — ${nombre}`;
+      document.getElementById("modal-seleccionada").classList.add("seleccionada");
+      lista.classList.remove("active");
+    });
+    lista.appendChild(div);
+  });
+
+  if (items.length > 0) {
+    lista.classList.add("active");
+  } else {
+    lista.classList.remove("active");
+  }
+}
+
+async function guardarCorreccion() {
+  const errorEl = document.getElementById("modal-error");
+
+  if (!partidaSeleccionada) {
+    errorEl.textContent = "Seleccione una partida correcta.";
+    return;
+  }
+  const usuario = document.getElementById("modal-usuario").value.trim();
+  if (!usuario) {
+    errorEl.textContent = "Ingrese el nombre del usuario.";
+    return;
+  }
+
+  const body = {
+    item: itemCorreccion,
+    partida_predicha: predichaCorreccion,
+    partida_correcta: partidaSeleccionada,
+    usuario: usuario
+  };
+
+  try {
+    const resp = await fetch("/api/feedback", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body)
+    });
+
+    if (!resp.ok) {
+      const err = await resp.json();
+      errorEl.textContent = err.detail || "Error al guardar la corrección.";
+      return;
+    }
+
+    cerrarModal();
+  } catch (e) {
+    errorEl.textContent = "No se pudo conectar con la API.";
+  }
+}
+
+document.getElementById("modal-close").addEventListener("click", cerrarModal);
+document.getElementById("modal-cancel").addEventListener("click", cerrarModal);
+document.getElementById("modal-save").addEventListener("click", guardarCorreccion);
+document.getElementById("modal-overlay").addEventListener("click", (e) => {
+  if (e.target === e.currentTarget) cerrarModal();
+});
+
+const inputBuscar = document.getElementById("modal-buscar");
+inputBuscar.addEventListener("input", (e) => filtrarPartidas(e.target.value));
+inputBuscar.addEventListener("focus", (e) => filtrarPartidas(e.target.value));
+
+document.addEventListener("click", (e) => {
+  if (!e.target.closest(".form-group")) {
+    document.getElementById("modal-lista").classList.remove("active");
+  }
+});

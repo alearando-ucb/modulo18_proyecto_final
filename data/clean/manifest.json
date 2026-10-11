@@ -9872,12 +9872,12 @@
     "sha256": "616aaa1e91a3e9b9cb78b8a8fcb166791bdea7becd4e7416c79b7b03de69ed2c"
   },
   {
-    "id": "596a1ae36695",
+    "id": "b2ea415b96d1",
     "group_id": "pago de servicio de jardineria",
     "split": "train",
-    "label": "66210",
+    "label": "25900",
     "class_name": "pago de servicio de jardineria",
-    "sha256": "596a1ae3669541122e8bc4792d812074882c2a976ad245dd0584b8ea7e27665e"
+    "sha256": "b2ea415b96d12bd4db430b81c407d25201a00bb8528cc94c95ee9b8d6ff59f8b"
   },
   {
     "id": "af7b436e6a85",
@@ -11758,5 +11758,29 @@
     "label": "26200",
     "class_name": "pago por honorarios de abogados externos del proceso",
     "sha256": "de5038cd354f60e3b9e3b77bd09d2de01b08c9e58df3420c6a6b15ab8272e8cd"
+  },
+  {
+    "id": "1f576d000d92",
+    "group_id": "laptop de 15 pulgadas",
+    "split": "train",
+    "label": "43120",
+    "class_name": "laptop de 15 pulgadas",
+    "sha256": "1f576d000d92e468cd9d4c3984d48bcecc510806a2f940054a76f58f20ef84fc"
+  },
+  {
+    "id": "3a8ce8882b0e",
+    "group_id": "monitor lcd asus de 27 pulgadas",
+    "split": "train",
+    "label": "43120",
+    "class_name": "monitor lcd asus de 27 pulgadas",
+    "sha256": "3a8ce8882b0e3256adabec55e59d6801abc1906c3af72f0e24b9840a45a00a4c"
+  },
+  {
+    "id": "d3a1bc3971bb",
+    "group_id": "pago de salario a personal de planta",
+    "split": "train",
+    "label": "11700",
+    "class_name": "pago de salario a personal de planta",
+    "sha256": "d3a1bc3971bb3663efd3f8055b60f326798a6cc2fca4fb6332a4d5e51614d648"
   }
 ]

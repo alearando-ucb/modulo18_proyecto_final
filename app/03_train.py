@@ -18,6 +18,7 @@ from app.settings import (
     EMBEDDINGS,
     HISTORIAL_DNN,
     MODELO_DNN,
+    PESO_CORRECCIONES,
     fijar_semillas,
 )
 from app.split import dividir_splits
@@ -34,17 +35,22 @@ GRAD_CLIP = 0.5
 
 
 def cargar_datos():
-    """Carga features, labels y groups desde embeddings.npz, mapeando partidas a índices."""
+    """Carga features, labels, groups y pesos desde embeddings.npz, mapeando partidas a índices."""
     data = np.load(EMBEDDINGS, allow_pickle=True)
     features = data["features"]
     labels_str = data["labels"].astype(str)
     groups = data["item_ids"]
     partidas = data["partidas"].astype(str)
+    weights = (
+        data["weights"]
+        if "weights" in data.files
+        else np.ones(len(features), dtype=np.float32)
+    )
 
     partida_to_idx = {p: i for i, p in enumerate(partidas)}
     labels = np.array([partida_to_idx[p] for p in labels_str], dtype=np.int64)
 
-    return features, labels, groups, partidas
+    return features, labels, groups, partidas, weights
 
 
 def calcular_class_weights(labels_train, num_classes):
@@ -71,7 +77,8 @@ def cosine_warmup(optimizer, total_steps):
 
 def entrenar(modelo, train_loader, val_features, val_labels, device, weights_tensor):
     """Entrena la DNN con early stopping sobre val_loss."""
-    criterion = nn.CrossEntropyLoss(weight=weights_tensor)
+    criterion_train = nn.CrossEntropyLoss(weight=weights_tensor, reduction="none")
+    criterion_val = nn.CrossEntropyLoss(weight=weights_tensor)
     optimizer = AdamW(modelo.parameters(), lr=LR, weight_decay=WEIGHT_DECAY)
     total_steps = len(train_loader) * EPOCHS
     scheduler = cosine_warmup(optimizer, total_steps)
@@ -86,11 +93,11 @@ def entrenar(modelo, train_loader, val_features, val_labels, device, weights_ten
 
         modelo.train()
         total_loss = 0.0
-        for features, labels in train_loader:
+        for features, labels, pesos in train_loader:
             features, labels = features.to(device), labels.to(device)
             optimizer.zero_grad()
             logits = modelo(features)
-            loss = criterion(logits, labels)
+            loss = (criterion_train(logits, labels) * pesos.to(device)).mean()
             loss.backward()
             torch.nn.utils.clip_grad_norm_(modelo.parameters(), GRAD_CLIP)
             optimizer.step()
@@ -102,7 +109,7 @@ def entrenar(modelo, train_loader, val_features, val_labels, device, weights_ten
         val_preds = []
         with torch.no_grad():
             logits = modelo(torch.tensor(val_features, dtype=torch.float32).to(device))
-            loss = criterion(logits, torch.tensor(val_labels).to(device))
+            loss = criterion_val(logits, torch.tensor(val_labels).to(device))
             val_loss = loss.item()
             val_preds = logits.argmax(dim=1).cpu().numpy()
 
@@ -143,14 +150,16 @@ def main():
     print(f"Device: {device}")
 
     print("Cargando embeddings...")
-    features, labels, groups, partidas = cargar_datos()
+    features, labels, groups, partidas, weights = cargar_datos()
     print(f"  features: {features.shape}")
 
     print("Split 70/15/15...")
     train_idx, val_idx, prueba_idx = dividir_splits(labels, groups)
     X_train, y_train = features[train_idx], labels[train_idx]
     X_val, y_val = features[val_idx], labels[val_idx]
+    w_train = weights[train_idx]
     print(f"  train: {len(train_idx)}, val: {len(val_idx)}, prueba: {len(prueba_idx)}")
+    print(f"  correcciones en train con peso {PESO_CORRECCIONES}: {int((w_train > 1.0).sum())}")
 
     num_classes = len(partidas)
     print(f"  clases: {num_classes}")
@@ -160,6 +169,7 @@ def main():
     train_dataset = TensorDataset(
         torch.tensor(X_train, dtype=torch.float32),
         torch.tensor(y_train, dtype=torch.long),
+        torch.tensor(w_train, dtype=torch.float32),
     )
     train_loader = DataLoader(train_dataset, batch_size=BATCH_SIZE, shuffle=True)
 

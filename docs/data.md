@@ -90,6 +90,7 @@ Los datos sintéticos rescataron 22 partidas que habrían sido descartadas.
 
 - **Archivo:** `data/clean/DATOS.csv`
 - **Registros:** 1,470 filas (1,292 reales + 179 sintéticos - 1 descartada)
+- **Columnas:** `item`, `partida`, `origen` (`real` | `sintetico` | `correccion`), `item_limpio`
 - **Partidas únicas:** 70
 
 ## Manifest

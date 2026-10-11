@@ -129,7 +129,7 @@ La API expone cinco endpoints:
 - `POST /api/predict` — clasifica un ítem de gasto. Acepta `{"item": "texto del gasto"}` y retorna la partida predicha, su nombre y el top-3 de puntajes.
 - `GET /api/metrics` — métricas de evaluación de ambos modelos.
 - `GET /api/partidas` — catálogo de partidas (código y nombre) usado por el selector de correcciones.
-- `POST /api/feedback` — registra una corrección de predicción. Acepta `{"item", "partida_predicha", "partida_correcta", "usuario"}` y la agrega a `DATOS CORRECCIONES.csv` para el siguiente reentrenamiento.
+- `POST /api/feedback` — registra una corrección de predicción. Acepta `{"item", "partida_predicha", "partida_correcta", "usuario"}` y la agrega a `DATOS CORRECCIONES.csv` para el siguiente reentrenamiento. Las correcciones aplicadas se marcan con `origen=correccion` en `DATOS.csv` y pesan 3 veces más (`PESO_CORRECCIONES`) en el entrenamiento.
 
 Ejemplo de predicción:
 

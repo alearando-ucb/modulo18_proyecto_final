@@ -54,6 +54,7 @@ def fijar_semillas():
         pass
 
 UMBRAL_MINIMO = 6
+PESO_CORRECCIONES = 3.0
 
 MODELO_SEMANTICO = "intfloat/multilingual-e5-large-instruct"
 DIM_EMBEDDINGS = 1024

@@ -32,6 +32,7 @@ def leer_real(ruta: Path) -> list[dict]:
             rows.append({
                 "item": row[0].strip(),
                 "partida": row[1].strip(),
+                "origen": "real",
             })
     return rows
 
@@ -48,6 +49,7 @@ def leer_sintetico(ruta: Path) -> list[dict]:
             rows.append({
                 "item": row[1].strip(),
                 "partida": row[0].strip(),
+                "origen": "sintetico",
             })
     return rows
 
@@ -80,11 +82,13 @@ def aplicar_correcciones(rows: list[dict], correcciones: list[dict]) -> list[dic
         key = limpiar_texto(corr["item"])
         if key in index:
             rows[index[key]]["partida"] = corr["partida"]
+            rows[index[key]]["origen"] = "correccion"
         else:
             rows.append({
                 "item": corr["item"],
                 "partida": corr["partida"],
                 "item_limpio": key,
+                "origen": "correccion",
             })
     return rows
 

@@ -15,6 +15,7 @@ from app.settings import (
     DIM_EMBEDDINGS,
     EMBEDDING_DESCRIPCIONES,
     MODELO_SEMANTICO,
+    PESO_CORRECCIONES,
     ROOT,
     fijar_semillas,
 )
@@ -100,12 +101,22 @@ def main():
 
     labels = df["partida"].astype(str).values
 
+    origen = (
+        df["origen"].astype(str).values
+        if "origen" in df.columns
+        else np.array(["real"] * len(df))
+    )
+    weights = np.where(origen == "correccion", PESO_CORRECCIONES, 1.0).astype(np.float32)
+    n_corr = int((weights > 1.0).sum())
+    print(f"Filas corregidas con peso {PESO_CORRECCIONES}: {n_corr}")
+
     np.savez(
         ARTIFACTS / "embeddings.npz",
         features=features.cpu().numpy(),
         labels=labels,
         partidas=np.array(partidas_con_desc),
         item_ids=df["item_limpio"].values,
+        weights=weights,
     )
 
     # emb_descripciones: embeddings de las descripciones oficiales del clasificador.

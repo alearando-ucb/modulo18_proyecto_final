@@ -16,20 +16,22 @@ Documentación técnica de los datos del clasificador presupuestario.
 - **Formato:** separador `;`, codificación `iso-8859-1`
 - **Columnas:** `ITEM` (descripción del gasto) y `PARTIDA` (código de 5 dígitos del Clasificador por Objeto del Gasto del MEF)
 - **Registros:** 1,292 filas, 70 partidas únicas
+- **Archivo de entrenamiento vigente:** `data/raw/DATOS ENTRENAMIENTO V2.csv` (las mismas 1,292 filas y 70 partidas; solo cambian las descripciones del grupo 60000, ver el conflicto abajo)
 
 ## Conflicto partidas del grupo 20000 y 60000
 
 Existia un conflicto entre los grupos macro 20000 y 60000, ya que ambos son pagos con las mismas categorías, la diferencia es la temporalidad, el grupo 60000 se usa para inscribir pagos de la gestión pasada.
 En el dataset de origen no existe diferencia entre las descripciones de gastos de ambos grupos, por lo cual todo se clasificaba en el grupo 60000 ya que es el grupo mayoritario de los dos.
-Como solución se modificó la descripción de los items del grupo 60000 agregando palabras que denotan temporalidad, se creo el archivo **DATA ENTRENAMIENTO V2.csv** que contiene estos cambios.
+Como solución se modificó la descripción de los items del grupo 60000 agregando palabras que denotan temporalidad, se creo el archivo **DATOS ENTRENAMIENTO V2.csv** que contiene estos cambios.
 
 ## Datos sintéticos
 
 - **Archivo:** `data/raw/DATOS SINTETICOS.csv`
-- **Registros:** 159 filas
+- **Registros:** 179 filas
 - **Origen:** generados manualmente a partir del experimento de referencia (Colab, versión DNN 2)
 - **Objetivo:** cubrir partidas con pocos registros reales para que superen el umbral mínimo y no se descarten
-- **Partidas cubiertas:** pasajes (22110, 22120), materiales (34500, 34600, 34800, 39700, 39800), lubricantes (34110), cuero (34400), muebles (43110), gas (21500), libros (32300), agua (31120), textiles (33200), vajilla (39300), prensa (32500), seguros (22500), laboratorio (25120), energía eléctrica (21200), y trámites (85900)
+- **Partidas cubiertas:** pasajes (22110, 22120), materiales (34500, 34600, 34800, 39700, 39800), lubricantes (34110), cuero (34400), muebles (43110), gas (21500), libros (32300), agua (31120), textiles (33200), vajilla (39300), prensa (32500), seguros (22500), laboratorio (25120), energía eléctrica (21200), trámites (85900)
+- **Ampliación final (+16):** servicios de limpieza (25400), jardinera (25900), seguridad privada (26610), alquileres (23400), comunicaciones y mensajería (21100), agua (21300), publicidad (25500) y gastos judiciales (26200), 2 registros por partida, con vocabulario de confusión frecuente contra los grupos 60000 y vecinos
 
 ## Limpieza de la data
 
@@ -87,13 +89,13 @@ Los datos sintéticos rescataron 22 partidas que habrían sido descartadas.
 ## Dataset final
 
 - **Archivo:** `data/clean/DATOS.csv`
-- **Registros:** 1,450 filas (1,292 reales + 159 sintéticos - 1 descartada)
+- **Registros:** 1,470 filas (1,292 reales + 179 sintéticos - 1 descartada)
 - **Partidas únicas:** 70
 
 ## Manifest
 
 - **Archivo:** `data/clean/manifest.json`
-- **Campos por entrada:** `id` (hash corto), `group_id` (primer dígito de la partida), `split`, `label` (código de partida), `class_name` (texto limpio), `sha256` (hash completo del texto limpio)
+- **Campos por entrada:** `id` (hash corto), `group_id` (texto limpio del ítem, usado para agrupar en el split), `split`, `label` (código de partida), `class_name` (texto limpio), `sha256` (hash completo del texto limpio)
 
 ## Reglas de fuga
 

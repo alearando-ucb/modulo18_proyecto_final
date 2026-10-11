@@ -55,6 +55,15 @@ def calcular_hash(ruta) -> str:
     return h.hexdigest()[:16]
 
 
+def hash_oov_semantico(ruta) -> str:
+    """Hash del contenido semántico del OOV (ignora finales de línea CRLF/LF)."""
+    df = pd.read_csv(ruta, sep=";", encoding="utf-8")
+    canonico = "\n".join(
+        f"{p};{i}" for p, i in zip(df["PARTIDA"].astype(str), df["ITEM"].astype(str))
+    )
+    return hashlib.sha256(canonico.encode("utf-8")).hexdigest()[:16]
+
+
 def cargar_split():
     """Recupera el mismo split 70/15/15 usado en entrenamiento."""
     data = np.load(EMBEDDINGS, allow_pickle=True)
@@ -128,15 +137,24 @@ def evaluar_modelo(y_real, y_pred, y_prob, partidas, nombre):
 
 
 def generar_features_oov():
-    """Genera embeddings y features para el conjunto OOV."""
+    """Genera embeddings y features para el conjunto OOV, con caché por hash semántico."""
     from sentence_transformers import SentenceTransformer
+
+    oov_hash = hash_oov_semantico(RUTA_OOV)
+
+    data = np.load(EMBEDDINGS, allow_pickle=True)
+    partidas_train = data["partidas"].astype(str)
+
+    if OOV_EMBEDDINGS.exists():
+        cache = np.load(OOV_EMBEDDINGS, allow_pickle=True)
+        if "oov_hash" in cache.files and str(cache["oov_hash"]) == oov_hash:
+            print("Caché de embeddings OOV válida, se omite la generación.")
+            return cache["features"], [str(x) for x in cache["labels"]], partidas_train
+        print("Caché de embeddings OOV desactualizada, regenerando...")
 
     oov = pd.read_csv(RUTA_OOV, sep=";", encoding="utf-8")
     items = [limpiar_texto(str(t)) for t in oov["ITEM"].tolist()]
     labels_str = oov["PARTIDA"].astype(str).tolist()
-
-    data = np.load(EMBEDDINGS, allow_pickle=True)
-    partidas_train = data["partidas"].astype(str)
 
     desc_completas = {}
     with open(CLASIFICADOR, "r", encoding="utf-8-sig") as f:
@@ -163,6 +181,7 @@ def generar_features_oov():
         features=features,
         labels=np.array(labels_str),
         item_ids=np.array(items),
+        oov_hash=np.str_(oov_hash),
     )
 
     return features, labels_str, partidas_train
@@ -288,7 +307,7 @@ def main():
         "hashes": {
             "embeddings": calcular_hash(EMBEDDINGS),
             "datos": calcular_hash(DATA_CLEAN / "DATOS.csv"),
-            "oov": calcular_hash(RUTA_OOV),
+            "oov": hash_oov_semantico(RUTA_OOV),
         },
         "tamano_prueba": int(X_test.shape[0]),
         "tamano_oov": int(valid_mask.sum()),

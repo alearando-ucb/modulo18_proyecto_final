@@ -45,6 +45,17 @@ def calcular_hash(ruta) -> str:
     return h.hexdigest()[:16]
 
 
+def hash_oov_semantico(ruta) -> str:
+    """SHA-256 del contenido semántico del OOV (ignora finales de línea CRLF/LF)."""
+    import pandas as pd
+
+    df = pd.read_csv(ruta, sep=";", encoding="utf-8")
+    canonico = "\n".join(
+        f"{p};{i}" for p, i in zip(df["PARTIDA"].astype(str), df["ITEM"].astype(str))
+    )
+    return hashlib.sha256(canonico.encode("utf-8")).hexdigest()[:16]
+
+
 def evaluar_consistencia():
     """Compara los hashes actuales de datos, embeddings y OOV con metrics.json."""
     try:
@@ -53,7 +64,7 @@ def evaluar_consistencia():
     except (OSError, json.JSONDecodeError):
         return False, False, False
     datos_ok = DATOS.exists() and hashes.get("datos") == calcular_hash(DATOS)
-    oov_ok = RUTA_OOV.exists() and hashes.get("oov") == calcular_hash(RUTA_OOV)
+    oov_ok = RUTA_OOV.exists() and hashes.get("oov") == hash_oov_semantico(RUTA_OOV)
     emb_ok = EMBEDDINGS.exists() and hashes.get("embeddings") == calcular_hash(EMBEDDINGS)
     return datos_ok, oov_ok, emb_ok
 

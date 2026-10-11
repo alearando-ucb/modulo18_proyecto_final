@@ -11,6 +11,7 @@ import torch.nn as nn
 from sklearn.metrics import f1_score
 from sklearn.utils.class_weight import compute_class_weight
 from torch.optim import AdamW
+from torch.optim.swa_utils import AveragedModel
 from torch.utils.data import DataLoader, TensorDataset
 
 from app.dnn import DNNPartidas
@@ -32,6 +33,7 @@ DROPOUT = 0.3
 PACIENCIA = 6
 WARMUP_RATIO = 0.1
 GRAD_CLIP = 0.5
+SWA_START = 10
 
 
 def cargar_datos():
@@ -76,16 +78,16 @@ def cosine_warmup(optimizer, total_steps):
 
 
 def entrenar(modelo, train_loader, val_features, val_labels, device, weights_tensor):
-    """Entrena la DNN con early stopping sobre val_loss."""
+    """Entrena la DNN con early stopping y SWA sobre val_loss."""
     criterion_train = nn.CrossEntropyLoss(weight=weights_tensor, reduction="none")
     criterion_val = nn.CrossEntropyLoss(weight=weights_tensor)
     optimizer = AdamW(modelo.parameters(), lr=LR, weight_decay=WEIGHT_DECAY)
     total_steps = len(train_loader) * EPOCHS
     scheduler = cosine_warmup(optimizer, total_steps)
+    swa_model = AveragedModel(modelo)
 
     mejor_val_loss = float("inf")
     epocas_sin_mejora = 0
-    mejor_estado = None
     historial = {"epoch": [], "train_loss": [], "val_loss": [], "val_f1": []}
 
     for epoch in range(EPOCHS):
@@ -128,17 +130,20 @@ def entrenar(modelo, train_loader, val_features, val_labels, device, weights_ten
             f"val_f1={val_f1:.4f} | {elapsed:.1f}s"
         )
 
+        if epoch >= SWA_START:
+            swa_model.update_parameters(modelo)
+
         if val_loss < mejor_val_loss:
             mejor_val_loss = val_loss
             epocas_sin_mejora = 0
-            mejor_estado = {k: v.clone() for k, v in modelo.state_dict().items()}
         else:
             epocas_sin_mejora += 1
             if epocas_sin_mejora >= PACIENCIA:
                 print(f"  Early stopping en epoch {epoch + 1}")
                 break
 
-    modelo.load_state_dict(mejor_estado)
+    modelo.load_state_dict(swa_model.module.state_dict())
+    print(f"  Pesos SWA promediados desde epoch {SWA_START}")
     return historial
 
 

@@ -85,11 +85,9 @@ def entrenar(modelo, train_loader, val_features, val_labels, device, weights_ten
     total_steps = len(train_loader) * EPOCHS
     scheduler = cosine_warmup(optimizer, total_steps)
     swa_model = AveragedModel(modelo)
-    swa_activado = False
 
     mejor_val_loss = float("inf")
     epocas_sin_mejora = 0
-    mejor_estado = None
     historial = {"epoch": [], "train_loss": [], "val_loss": [], "val_f1": []}
 
     for epoch in range(EPOCHS):
@@ -132,26 +130,20 @@ def entrenar(modelo, train_loader, val_features, val_labels, device, weights_ten
             f"val_f1={val_f1:.4f} | {elapsed:.1f}s"
         )
 
+        if epoch >= SWA_START:
+            swa_model.update_parameters(modelo)
+
         if val_loss < mejor_val_loss:
             mejor_val_loss = val_loss
             epocas_sin_mejora = 0
-            mejor_estado = {k: v.clone() for k, v in modelo.state_dict().items()}
         else:
             epocas_sin_mejora += 1
             if epocas_sin_mejora >= PACIENCIA:
                 print(f"  Early stopping en epoch {epoch + 1}")
                 break
 
-        if epoch >= SWA_START:
-            swa_model.update_parameters(modelo)
-            swa_activado = True
-
-    if swa_activado:
-        modelo.load_state_dict(swa_model.module.state_dict())
-        print(f"  Pesos SWA promediados desde epoch {SWA_START}")
-    else:
-        modelo.load_state_dict(mejor_estado)
-        print(f"  SWA no alcanzado (early stop antes de epoch {SWA_START}), usando mejor epoch")
+    modelo.load_state_dict(swa_model.module.state_dict())
+    print(f"  Pesos SWA promediados desde epoch {SWA_START}")
     return historial
 
 

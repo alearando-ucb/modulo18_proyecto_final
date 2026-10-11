@@ -98,7 +98,7 @@ python -m app.03_train        # Entrenar red neuronal (recomendado con GPU)
 python -m app.04_evaluate     # Evaluar ambos modelos
 ```
 
-Si la máquina no tiene GPU, se recomienda correr `python run.py --rebuild` en la máquina con GPU y subir los artefactos resultantes de `artifacts/` al repositorio.
+Se recomienda correr `python run.py --rebuild` en una máquina con GPU.
 
 Para iniciar solo la API y el frontend, sin regenerar artefactos:
 
@@ -110,16 +110,16 @@ Luego abrir http://127.0.0.1:8000/ en el navegador. La interfaz ofrece un clasif
 
 ## Resultados
 
-Los modelos se evalúan en dos conjuntos: prueba (229 ítems con distribución similar al entrenamiento) y OOV (140 ítems nunca vistos, 2 por partida).
+Los modelos se evalúan en dos conjuntos: prueba (202 ítems con distribución similar al entrenamiento) y OOV (140 ítems nunca vistos, 2 por partida).
 
 | Métrica | DNN | Regresión logística |
 |---------|-----|---------------------|
-| Macro-F1 (prueba) | 0.7937 | 0.7263 |
-| Macro-F1 (OOV) | 0.8044 | 0.7595 |
-| Error grave (prueba) | 3.06% | 7.86% |
-| Error grave (OOV) | 5.00% | 5.00% |
+| Macro-F1 (prueba) | 0.7223 | 0.7070 |
+| Macro-F1 (OOV) | **0.8124** | 0.7758 |
+| Error grave (prueba) | **3.47%** | 3.96% |
+| Error grave (OOV) | **4.29%** | 5.71% |
 
-La DNN es el modelo ganador según el criterio congelado (mayor Macro-F1 en ambos conjuntos). En error grave es mejor en el conjunto de prueba (3.06% vs 7.86%) y empata en OOV (5.00% vs 5.00%).
+La DNN es el modelo ganador según el criterio congelado (mayor Macro-F1 en ambos conjuntos). En error grave también es mejor en ambos: 3.47% vs 3.96% en prueba y 4.29% vs 5.71% en OOV.
 
 ## API
 

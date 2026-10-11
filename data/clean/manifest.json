@@ -11782,5 +11782,13 @@
     "label": "11700",
     "class_name": "pago de salario a personal de planta",
     "sha256": "d3a1bc3971bb3663efd3f8055b60f326798a6cc2fca4fb6332a4d5e51614d648"
+  },
+  {
+    "id": "1d3fa67792f2",
+    "group_id": "monitor adicional para estacion de trabajo",
+    "split": "train",
+    "label": "43120",
+    "class_name": "monitor adicional para estacion de trabajo",
+    "sha256": "1d3fa67792f283b02d1f69d3f77c504d0086c600def34b993b59938777314892"
   }
 ]

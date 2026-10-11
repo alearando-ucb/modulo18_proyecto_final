@@ -1358,7 +1358,7 @@ tiento de cuero para amarres;34400;sintetico;tiento de cuero para amarres
 suela de cuero para reparacion de calzado;34400;sintetico;suela de cuero para reparacion de calzado
 silla giratoria ejecutiva con respaldo de malla;43110;sintetico;silla giratoria ejecutiva con respaldo de malla
 escritorio de oficina con cajones;43110;sintetico;escritorio de oficina con cajones
-archivador metalico de cuatro gavetas;43110;sintetico;archivador metalico de cuatro gavetas
+archivador metalico de cuatro gavetas;43110;correccion;archivador metalico de cuatro gavetas
 vitrina de exhibicion para oficina;43110;sintetico;vitrina de exhibicion para oficina
 estante metalico para almacenamiento de documentos;43110;sintetico;estante metalico para almacenamiento de documentos
 mesa de reuniones para sala de directorio;43110;sintetico;mesa de reuniones para sala de directorio
@@ -1472,3 +1472,4 @@ pago por honorarios de abogados externos del proceso;26200;sintetico;pago por ho
 laptop de 15 pulgadas;43120;correccion;laptop de 15 pulgadas
 monitor lcd asus de 27 pulgadas;43120;correccion;monitor lcd asus de 27 pulgadas
 pago de salario a personal de planta;11700;correccion;pago de salario a personal de planta
+monitor adicional para estacion de trabajo;43120;correccion;monitor adicional para estacion de trabajo

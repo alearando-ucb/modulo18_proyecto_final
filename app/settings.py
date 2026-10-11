@@ -28,26 +28,28 @@ ERROR_REVIEW = ARTIFACTS / "error_review.md"
 OOV_EMBEDDINGS = ARTIFACTS / "oov_embeddings.npz"
 
 SEMILLA = 42
+SEMILLAS_ENTRENAMIENTO = (42, 43, 44, 45, 46)
 
 
-def fijar_semillas():
+def fijar_semillas(semilla=None):
     """Fija random, numpy y torch para reproducibilidad."""
     import random
 
-    random.seed(SEMILLA)
+    s = semilla if semilla is not None else SEMILLA
+    random.seed(s)
 
     try:
         import numpy as np
 
-        np.random.seed(SEMILLA)
+        np.random.seed(s)
     except ImportError:
         pass
 
     try:
         import torch
 
-        torch.manual_seed(SEMILLA)
-        torch.cuda.manual_seed_all(SEMILLA)
+        torch.manual_seed(s)
+        torch.cuda.manual_seed_all(s)
         torch.backends.cudnn.deterministic = True
         torch.backends.cudnn.benchmark = False
     except ImportError:

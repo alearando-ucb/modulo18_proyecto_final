@@ -11,7 +11,6 @@ import torch.nn as nn
 from sklearn.metrics import f1_score
 from sklearn.utils.class_weight import compute_class_weight
 from torch.optim import AdamW
-from torch.optim.swa_utils import AveragedModel
 from torch.utils.data import DataLoader, TensorDataset
 
 from app.dnn import DNNPartidas
@@ -20,6 +19,7 @@ from app.settings import (
     HISTORIAL_DNN,
     MODELO_DNN,
     PESO_CORRECCIONES,
+    SEMILLAS_ENTRENAMIENTO,
     fijar_semillas,
 )
 from app.split import dividir_splits
@@ -33,7 +33,6 @@ DROPOUT = 0.3
 PACIENCIA = 6
 WARMUP_RATIO = 0.1
 GRAD_CLIP = 0.5
-SWA_START = 10
 
 
 def cargar_datos():
@@ -78,16 +77,16 @@ def cosine_warmup(optimizer, total_steps):
 
 
 def entrenar(modelo, train_loader, val_features, val_labels, device, weights_tensor):
-    """Entrena la DNN con early stopping y SWA sobre val_loss."""
+    """Entrena la DNN con early stopping sobre val_loss."""
     criterion_train = nn.CrossEntropyLoss(weight=weights_tensor, reduction="none")
     criterion_val = nn.CrossEntropyLoss(weight=weights_tensor)
     optimizer = AdamW(modelo.parameters(), lr=LR, weight_decay=WEIGHT_DECAY)
     total_steps = len(train_loader) * EPOCHS
     scheduler = cosine_warmup(optimizer, total_steps)
-    swa_model = AveragedModel(modelo)
 
     mejor_val_loss = float("inf")
     epocas_sin_mejora = 0
+    mejor_estado = None
     historial = {"epoch": [], "train_loss": [], "val_loss": [], "val_f1": []}
 
     for epoch in range(EPOCHS):
@@ -130,27 +129,23 @@ def entrenar(modelo, train_loader, val_features, val_labels, device, weights_ten
             f"val_f1={val_f1:.4f} | {elapsed:.1f}s"
         )
 
-        if epoch >= SWA_START:
-            swa_model.update_parameters(modelo)
-
         if val_loss < mejor_val_loss:
             mejor_val_loss = val_loss
             epocas_sin_mejora = 0
+            mejor_estado = {k: v.clone() for k, v in modelo.state_dict().items()}
         else:
             epocas_sin_mejora += 1
             if epocas_sin_mejora >= PACIENCIA:
                 print(f"  Early stopping en epoch {epoch + 1}")
                 break
 
-    modelo.load_state_dict(swa_model.module.state_dict())
-    print(f"  Pesos SWA promediados desde epoch {SWA_START}")
-    return historial
+    modelo.load_state_dict(mejor_estado)
+    mejor_val_f1 = max(historial["val_f1"])
+    return historial, mejor_val_f1, mejor_val_loss
 
 
 def main():
-    """Entrena la DNN y guarda el modelo entrenado."""
-    fijar_semillas()
-
+    """Entrena la DNN con barrido de semillas y guarda la mejor."""
     device = "cuda" if torch.cuda.is_available() else "cpu"
     print(f"Device: {device}")
 
@@ -176,35 +171,71 @@ def main():
         torch.tensor(y_train, dtype=torch.long),
         torch.tensor(w_train, dtype=torch.float32),
     )
-    train_loader = DataLoader(train_dataset, batch_size=BATCH_SIZE, shuffle=True)
 
-    modelo = DNNPartidas(
-        dim_features=X_train.shape[1],
-        num_classes=num_classes,
-        dropout=DROPOUT,
-    ).to(device)
+    print(f"Barrido de semillas: {SEMILLAS_ENTRENAMIENTO}")
 
-    total_params = sum(p.numel() for p in modelo.parameters())
-    print(f"  parámetros: {total_params:,}")
+    mejor_semilla = None
+    mejor_val_f1 = -1.0
+    mejor_val_loss = float("inf")
+    mejor_state = None
+    corridas = []
 
-    print(f"Entrenando (LR={LR}, WD={WEIGHT_DECAY}, dropout={DROPOUT}, clip={GRAD_CLIP}, max_epochs={EPOCHS})...")
-    historial = entrenar(modelo, train_loader, X_val, y_val, device, weights_tensor)
+    for semilla in SEMILLAS_ENTRENAMIENTO:
+        print(f"\n=== Semilla {semilla} ===")
+        fijar_semillas(semilla)
+        train_loader = DataLoader(train_dataset, batch_size=BATCH_SIZE, shuffle=True)
+
+        modelo = DNNPartidas(
+            dim_features=X_train.shape[1],
+            num_classes=num_classes,
+            dropout=DROPOUT,
+        ).to(device)
+
+        print(f"Entrenando (LR={LR}, WD={WEIGHT_DECAY}, dropout={DROPOUT}, clip={GRAD_CLIP}, max_epochs={EPOCHS})...")
+        historial, val_f1, val_loss = entrenar(
+            modelo, train_loader, X_val, y_val, device, weights_tensor
+        )
+
+        corridas.append({
+            "semilla": semilla,
+            "mejor_val_f1": round(val_f1, 4),
+            "mejor_val_loss": round(val_loss, 4),
+            "epocas": len(historial["epoch"]),
+            "historial": historial,
+        })
+
+        print(f"  Semilla {semilla}: val_f1={val_f1:.4f}, val_loss={val_loss:.4f}")
+
+        if val_f1 > mejor_val_f1 or (val_f1 == mejor_val_f1 and val_loss < mejor_val_loss):
+            mejor_val_f1 = val_f1
+            mejor_val_loss = val_loss
+            mejor_semilla = semilla
+            mejor_state = {k: v.clone() for k, v in modelo.state_dict().items()}
+
+    print(f"\nMejor semilla: {mejor_semilla} (val_f1={mejor_val_f1:.4f}, val_loss={mejor_val_loss:.4f})")
 
     print(f"Guardando modelo en {MODELO_DNN}")
     torch.save(
         {
-            "state_dict": modelo.state_dict(),
+            "state_dict": mejor_state,
             "dim_features": X_train.shape[1],
             "num_classes": num_classes,
             "partidas": partidas,
             "dropout": DROPOUT,
+            "semilla": mejor_semilla,
         },
         MODELO_DNN,
     )
 
+    historial_final = {
+        "semilla_elegida": mejor_semilla,
+        "mejor_val_f1": round(mejor_val_f1, 4),
+        "mejor_val_loss": round(mejor_val_loss, 4),
+        "corridas": corridas,
+    }
     print(f"Guardando historial en {HISTORIAL_DNN}")
     with open(HISTORIAL_DNN, "w", encoding="utf-8") as f:
-        json.dump(historial, f, ensure_ascii=False, indent=2)
+        json.dump(historial_final, f, ensure_ascii=False, indent=2)
 
     print("Listo.")
 

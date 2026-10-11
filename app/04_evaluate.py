@@ -62,11 +62,16 @@ def cargar_split():
     labels_str = data["labels"].astype(str)
     groups = data["item_ids"]
     partidas = data["partidas"].astype(str)
+    weights = (
+        data["weights"]
+        if "weights" in data.files
+        else np.ones(len(features), dtype=np.float32)
+    )
 
     partida_to_idx = {p: i for i, p in enumerate(partidas)}
     labels = np.array([partida_to_idx[p] for p in labels_str], dtype=np.int64)
 
-    _, _, test_idx = dividir_splits(labels, groups)
+    _, _, test_idx = dividir_splits(labels, groups, weights > 1.0)
 
     return features[test_idx], labels[test_idx], partidas, groups[test_idx], labels_str[test_idx]
 

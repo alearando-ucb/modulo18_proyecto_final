@@ -70,7 +70,7 @@ def main():
     print(f"  labels: {labels.shape}")
 
     print("Split 70/15/15...")
-    train_idx, val_idx, prueba_idx = dividir_splits(labels, groups)
+    train_idx, val_idx, prueba_idx = dividir_splits(labels, groups, weights > 1.0)
     X_train, y_train = features[train_idx], labels[train_idx]
     groups_train = groups[train_idx]
     w_train = weights[train_idx]

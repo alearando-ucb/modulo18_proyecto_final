@@ -15,8 +15,8 @@ FOLDS_VAL = frozenset({3, 4, 5})
 FOLD_ENTRENAMIENTO = -1
 
 
-def dividir_splits(labels, groups):
-    """Divide 70/15/15 por grupos y rescata al train las clases que queden solo fuera."""
+def dividir_splits(labels, groups, mascara_correcciones=None):
+    """Divide 70/15/15 por grupos; rescata al train clases solo fuera y grupos de correcciones."""
     unicos, inverso = np.unique(groups, return_inverse=True)
     etiquetas = np.array([labels[inverso == i][0] for i in range(len(unicos))])
 
@@ -32,6 +32,10 @@ def dividir_splits(labels, groups):
         pos = np.where(etiquetas == clase)[0]
         if not entrenamiento[pos].any():
             fold_de_grupo[pos[0]] = FOLD_ENTRENAMIENTO
+
+    if mascara_correcciones is not None:
+        grupos_corr = np.unique(inverso[np.asarray(mascara_correcciones, dtype=bool)])
+        fold_de_grupo[grupos_corr] = FOLD_ENTRENAMIENTO
 
     fold_de_fila = fold_de_grupo[inverso]
     train = np.where(~np.isin(fold_de_fila, list(FOLDS_PRUEBA | FOLDS_VAL)))[0]

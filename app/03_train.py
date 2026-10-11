@@ -154,7 +154,7 @@ def main():
     print(f"  features: {features.shape}")
 
     print("Split 70/15/15...")
-    train_idx, val_idx, prueba_idx = dividir_splits(labels, groups)
+    train_idx, val_idx, prueba_idx = dividir_splits(labels, groups, weights > 1.0)
     X_train, y_train = features[train_idx], labels[train_idx]
     X_val, y_val = features[val_idx], labels[val_idx]
     w_train = weights[train_idx]

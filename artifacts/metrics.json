@@ -16220,7 +16220,7 @@
       "accuracy": 0.8071,
       "balanced_accuracy": 0.8071,
       "error_grave": 0.05,
-      "log_loss": 0.7987,
+      "log_loss": 0.7985,
       "por_clase": {
         "11220": {
           "precision": 1.0,
@@ -21690,7 +21690,7 @@
   "hashes": {
     "embeddings": "7eb797e7f6f219b0",
     "datos": "58985c3164b0aa11",
-    "oov": "a773a2ebb0e98487"
+    "oov": "a2d2219a48f9e0d9"
   },
   "tamano_prueba": 231,
   "tamano_oov": 140
